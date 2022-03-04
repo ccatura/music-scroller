@@ -8,6 +8,7 @@
     --text-color: white;
     --background-color: #333;
     --button-color: #bbb;
+    --button-color-active: #888;
     --button-text-color: #000;
     --song-background: #444;
 }
@@ -21,7 +22,7 @@ body {
     background-color: var(--background-color);
     /* font-family: 'Courier New', Courier, monospace; */
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 2.2rem;
+    font-size: 30px;
 }
 
 a {
@@ -92,16 +93,25 @@ a:hover {
 
 .button-section {
     display: flex;
-    flex-flow: column wrap;
-    justify-content: flex-start;
+    flex-flow: row wrap;
+    justify-content: center;
     align-items: center;
-    /* border: 3px solid red; */
+    /* border: 1px solid red; */
     font-size: 1rem;
+    max-width: 80px;
+    -webkit-user-select: none; /* Safari */        
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard */
 }
 
 .button-group {
     display: flex;
     flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    /* border: 2px solid blue; */
+    width: 65px;
 }
 
 .button {
@@ -112,10 +122,14 @@ a:hover {
     height: 30px;
     border: 2px solid black;
     border-radius: 5px;
-    margin: 0 3px 0 3px;
+    /* margin: 0 3px 0 3px; */
     background-color: var(--button-color);
     color: var(--button-text-color);
     cursor: pointer;
+}
+
+.button:active {
+    background-color: var(--button-color-active);
 }
 
 .song-section {

@@ -9,6 +9,8 @@ var startScroll;
 var paused = true;
 var newFontSize = computedFontSize = parseInt(window.getComputedStyle(document.body).fontSize); //get base font size in body
 var playState = paused;
+var smallestSize = 10;
+var largestSize = 42;
 
 // These are my personal pre-schosen speeds based on experienced teleprompt needs
 var speedPresets = {
@@ -76,17 +78,21 @@ speedUp.onclick = function() {
 
 // START SIZE
 sizeUp.onclick = function() {
-    newFontSize += 2;
-    document.body.style.fontSize = parseInt(newFontSize) + "px";
-    // console.log(newFontSize);
-    displaySize();
+    if (newFontSize < largestSize) {
+        newFontSize += 2;
+        document.body.style.fontSize = parseInt(newFontSize) + "px";
+        // console.log(newFontSize);
+        displaySize();
+    }
 }
 
 sizeDown.onclick = function() {
-    newFontSize -= 2;
-    document.body.style.fontSize = parseInt(newFontSize) + "px";
-    // console.log(newFontSize);
-    displaySize();
+    if (newFontSize > smallestSize) {
+        newFontSize -= 2;
+        document.body.style.fontSize = parseInt(newFontSize) + "px";
+        // console.log(newFontSize);
+        displaySize();
+    }
 }
 // END SIZE
 
