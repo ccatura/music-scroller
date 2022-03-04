@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --text-color: white;
+    --background-color: #333;
+    --button-color: #bbb;
+    --button-text-color: #000;
+    --font-size: 2.5rem;
+}
+
+body {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    /* font-family: 'Courier New', Courier, monospace; */
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: var(--font-size);
+}
+
+a {
+    color: var(--text-color);
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid white; */
+}
+
+.file-ops {
+    /* border: 3px solid green; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    /* width: 100%; */
+}
+
+.vert-space {
+    height: 20px;
+}
+
+.file-list {
+    /* border: 1px solid blue; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: flex-start;
+    list-style-type: none;
+    /* width: 95%; */
+}
+
+.file-list li {
+    /* border: 1px solid red; */
+    margin: 0 0 5px 0;
+}
+
+.buttons-header {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    width: 100%;
+    /* border: 3px solid green; */
+    margin: 0 0 10px 0;
+    position: sticky;
+    top: 0;
+    right: 0;
+    left: 0;
+    padding: 5px;
+    background-color: black;
+}
+
+.button-section {
+    display: flex;
+    justify-content: space-around;
+    /* border: 3px solid red; */
+    font-size: 1rem;
+}
+
+.button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 30px;
+    height: 30px;
+    border: 2px solid black;
+    border-radius: 5px;
+    margin: 0 3px 0 3px;
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    cursor: pointer;
+}
+
+.song-section {
+    margin: 0 0 20px 0;
+}
+
+.song-section-name {
+    font-weight: bold;
+}
+
+.song-title {
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.song-sub-title {
+    margin: 0 0 20px 0;
+    font-size: .8em;
+}
+
+.scroller {
+    padding: 0 20px 20px 20px;
+}
+
+.play {
+    border-style: solid;
+    border-width: 10px 0px 10px 20px;
+    border-color: transparent transparent transparent #202020;
+    margin: 0 1px 0 2px;
+}
+
+.pause {
+    background-color: #202020;
+    width: 15px;
+    height: 15px;
+}
+
+
+
+
+
+
+
