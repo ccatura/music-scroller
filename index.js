@@ -19,15 +19,10 @@ play.onclick = function() {
     }
     console.log("Playing: " + paused);
     console.log("Speed: " + speed);
-    displaySpeed();
 }
 
 pause.onclick = function pauseIt() {
-    paused = true;
-    clearInterval(startScroll);
-    console.log("Playing: " + paused);
-    document.getElementById('play').style.display = "flex";
-    document.getElementById('pause').style.display = "none";
+    stopScrolling()
 }
 
 function myTimer() {
@@ -36,24 +31,12 @@ function myTimer() {
 
 speedUp.onclick = function() {
     speed /= speedChangeAmount;
-    console.log("Speed: " + speed);
-    if (!paused) {
-        // Resets interval to update speed
-        clearInterval(startScroll);
-        startScroll = setInterval(myTimer, speed);
-    }
-    displaySpeed();
+    resetInterval()
 }
 
 speedDown.onclick = function() {
     speed *= speedChangeAmount;
-    console.log("Speed: " + speed);
-    if (!paused) {
-        // Resets interval to update speed
-        clearInterval(startScroll);
-        startScroll = setInterval(myTimer, speed);
-    }
-    displaySpeed();
+    resetInterval()
 }
 
 function displaySpeed() {
@@ -63,12 +46,23 @@ function displaySpeed() {
 // Stop scrolling when page hits the bottom
 window.onscroll = function(ev) {
     if ((window.innerHeight + window.scrollY) >= document.body.offsetHeight) {
-        paused = true;
-        clearInterval(startScroll);
-        console.log("Playing: " + paused);
-        document.getElementById('play').style.display = "flex";
-        document.getElementById('pause').style.display = "none";
+        stopScrolling()
         }
 };
 
+function stopScrolling() {
+    paused = true;
+    clearInterval(startScroll);
+    console.log("Playing: " + paused);
+    document.getElementById('play').style.display = "flex";
+    document.getElementById('pause').style.display = "none";
+}
 
+function resetInterval() {
+    console.log("Speed: " + speed);
+    if (!paused) {
+        clearInterval(startScroll);
+        startScroll = setInterval(myTimer, speed);
+    }
+    displaySpeed();
+}
