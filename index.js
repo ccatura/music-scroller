@@ -10,7 +10,7 @@ var paused = true;
 var newFontSize = computedFontSize = parseInt(window.getComputedStyle(document.body).fontSize); //get base font size in body
 var playState = paused;
 var smallestSize = 10;
-var largestSize = 42;
+var largestSize = 96;
 
 // These are my personal pre-schosen speeds based on experienced teleprompt needs
 var speedPresets = {

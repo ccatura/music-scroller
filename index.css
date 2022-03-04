@@ -97,7 +97,7 @@ a:hover {
     justify-content: center;
     align-items: center;
     /* border: 1px solid red; */
-    font-size: 1rem;
+    font-size: .8rem;
     max-width: 80px;
     -webkit-user-select: none; /* Safari */        
     -moz-user-select: none; /* Firefox */
@@ -126,6 +126,7 @@ a:hover {
     background-color: var(--button-color);
     color: var(--button-text-color);
     cursor: pointer;
+    font-size: 1.2rem;
 }
 
 .button:active {
@@ -133,7 +134,7 @@ a:hover {
 }
 
 .song-section {
-    margin: 0 0 20px 0;
+    margin: 0 0 1.5em 0;
 }
 
 .song-section-name {
@@ -146,7 +147,7 @@ a:hover {
 }
 
 .song-sub-title {
-    margin: 0 0 20px 0;
+    margin: 0 0 1.5em 0;
     font-size: .8em;
 }
 

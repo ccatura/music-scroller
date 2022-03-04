@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="../../../index.css" class="">
-    <script src="../../../index.js" defer></script>
+    <link rel="stylesheet" href="../../../../index.css" class="">
+    <script src="../../../../index.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <title>Charlie's Music Scroller for Musicians</title>
 </head>
@@ -58,7 +58,7 @@
     <div class="scroller">
 
         <div class="song">
-            <?php include 'the_other_side_of_life_lyrics_tags.txt';?>
+            <?php include '../txt/the_other_side_of_life_lyrics.txt';?>
         </div>
 
 
