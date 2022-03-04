@@ -7,68 +7,111 @@ var sizeDown = document.getElementById("size-down");
 
 var startScroll;
 var paused = true;
-var speed = 20;
-var speedChangeAmount = 1.5;
 var newFontSize = computedFontSize = parseInt(window.getComputedStyle(document.body).fontSize); //get base font size in body
+var playState = paused;
+
+// These are my personal pre-schosen speeds based on experienced teleprompt needs
+var speedPresets = {
+    10: 8,
+    9:  12,
+    8:  15,
+    7:  20,
+    6:  30,
+    5:  40,
+    4:  60,
+    3:  80,
+    2:  100,
+    1:  150
+};
+var speedIndex = 7; // Starting speed
 
 displaySpeed();
 displaySize();
+displayState();
 
 
-
-
-
-
+// START PLAY PAUSE
 play.onclick = function() {
     if (paused) {
-        startScroll = setInterval(myTimer, speed);
+        startScroll = setInterval(myTimer, speedPresets[speedIndex]);
         paused = false;
         document.getElementById('play').style.display = "none";
         document.getElementById('pause').style.display = "flex";
     }
-    console.log("Playing: " + paused);
-    console.log("Speed: " + speed);
+    displayState();
+    // console.log("Playing: " + paused);
+    // console.log("Speed: " + speed);
 }
 
 pause.onclick = function pauseIt() {
-    stopScrolling()
+    stopScrolling();
+    displayState();
+}
+// END PLAY PAUSE
+
+
+
+
+
+// START SPEED
+speedDown.onclick = function() {
+    if (speedIndex > 1) {
+        speedIndex--;
+        // console.log(speedIndex);
+        resetInterval()
+    }
 }
 
 speedUp.onclick = function() {
-    speed /= speedChangeAmount;
-    resetInterval()
+    if (speedIndex < 10) {
+        speedIndex++;
+        // console.log(speedIndex);
+        resetInterval()
+    }
 }
+// END SPEED
 
-speedDown.onclick = function() {
-    speed *= speedChangeAmount;
-    resetInterval()
-}
 
+
+
+// START SIZE
 sizeUp.onclick = function() {
     newFontSize += 2;
     document.body.style.fontSize = parseInt(newFontSize) + "px";
-    console.log(newFontSize);
+    // console.log(newFontSize);
     displaySize();
 }
 
 sizeDown.onclick = function() {
     newFontSize -= 2;
     document.body.style.fontSize = parseInt(newFontSize) + "px";
-    console.log(newFontSize);
+    // console.log(newFontSize);
     displaySize();
 }
+// END SIZE
 
 
 
 
 
 
+// FUNCTIONS
 function myTimer() {
         window.scrollBy(0, 1);
 }
 
 function displaySpeed() {
-    document.getElementById('speed').textContent = speed.toFixed(2);
+    document.getElementById('speed').textContent = speedIndex;
+}
+
+function displayState() {
+    if (paused) {
+        playState = "Start";
+    } else {
+        playState = "Stop";
+    }
+    document.getElementById('state').textContent = playState;
+    // console.log("It is: " + playState);
 }
 
 function displaySize() {
@@ -78,16 +121,16 @@ function displaySize() {
 function stopScrolling() {
     paused = true;
     clearInterval(startScroll);
-    console.log("Playing: " + paused);
+    // console.log("Playing: " + paused);
     document.getElementById('play').style.display = "flex";
     document.getElementById('pause').style.display = "none";
 }
 
 function resetInterval() {
-    console.log("Speed: " + speed);
+    // console.log("Speed: " + speed);
     if (!paused) {
         clearInterval(startScroll);
-        startScroll = setInterval(myTimer, speed);
+        startScroll = setInterval(myTimer, speedPresets[speedIndex]);
     }
     displaySpeed();
 }
