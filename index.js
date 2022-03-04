@@ -9,10 +9,10 @@ var startScroll;
 var paused = true;
 var speed = 20;
 var speedChangeAmount = 1.5;
-var baseFontSize = computedFontSize = parseInt(window.getComputedStyle(document.body).fontSize); //get base font size in body
+var newFontSize = computedFontSize = parseInt(window.getComputedStyle(document.body).fontSize); //get base font size in body
 
 displaySpeed();
-
+displaySize();
 
 
 
@@ -45,15 +45,17 @@ speedDown.onclick = function() {
 }
 
 sizeUp.onclick = function() {
-    baseFontSize += 2;
-    document.body.style.fontSize = parseInt(baseFontSize) + "px";
-    console.log(baseFontSize);
+    newFontSize += 2;
+    document.body.style.fontSize = parseInt(newFontSize) + "px";
+    console.log(newFontSize);
+    displaySize();
 }
 
 sizeDown.onclick = function() {
-    baseFontSize -= 2;
-    document.body.style.fontSize = parseInt(baseFontSize) + "px";
-    console.log(baseFontSize);
+    newFontSize -= 2;
+    document.body.style.fontSize = parseInt(newFontSize) + "px";
+    console.log(newFontSize);
+    displaySize();
 }
 
 
@@ -67,6 +69,10 @@ function myTimer() {
 
 function displaySpeed() {
     document.getElementById('speed').textContent = speed.toFixed(2);
+}
+
+function displaySize() {
+    document.getElementById('size').textContent = newFontSize;
 }
 
 function stopScrolling() {
