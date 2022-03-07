@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <link rel="stylesheet" href="./index.css" class="">
     <script src="./index.js" defer></script>
+    <link rel="icon" type="image/x-icon" href="./images/misc/favicon.ico">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <title>Charlie's Music Scroller for Musicians</title>
 </head>
