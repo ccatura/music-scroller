@@ -1,5 +1,30 @@
 <?php
-    $readJson = file_get_contents('./users/ccatura/songs/song_list.json');
+    // $readJson = file_get_contents('./users/ccatura/songs/song_list.json');
+
+    $readJson = {
+        "songs"=>[
+        {   "title"=>"The Other Side of Life",
+            "artist"=>"Charlie Katt",
+            "file"=>"the_other_side_of_life",
+            "setlist"=>"Christmas Show 2022"},
+    
+        {   "title"=>"1904",
+            "artist"=>"The Tallest Man on Earth",
+            "file"=>"file_name",
+            "setlist"=>"Christmas Show 2022"},
+    
+        {   "title"=>"#40",
+            "artist"=>"Dave Matthews",
+            "file"=>"file_name",
+            "setlist"=>"Summer Concert"},
+    
+        {   "title"=>"40oz to Freedom",
+            "artist"=>"Sublime",
+            "file"=>"file_name",
+            "setlist"=>"Summer Concert"}
+
+
+
 
     $songs = json_decode($readJson, true);
 
