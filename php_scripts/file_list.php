@@ -1,9 +1,16 @@
 <?php
     $readJson = file_get_contents('./users/ccatura/songs/song_list.json');
     $songs = json_decode($readJson, true);
-    $sortAs = $_GET['sort'];
+    // $sortAs = $_GET['sort'];
 
-    if (!$sortAs) {
+    // if (!$sortAs) {
+        // $sortAs = 'setlist';
+    // }
+
+    if(isset($_GET['sort']))
+    {
+       $sortAs = $_GET['sort'];
+    } else {
         $sortAs = 'setlist';
     }
 

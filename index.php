@@ -14,8 +14,8 @@
 <div class="wrapper">
     <div class="file-ops">
         <div class="header">
-            <h6 class="user">Search Songs: <input type="text"></h6>
-            <h6 class="user">Logged in as: <strong>ccatura</strong></h6>
+            <h6><input type="text"><button>Search</button></h6>
+            <h6>Logged in as: <strong>ccatura</strong></h6>
         </div>
         <div class="create">
             <h5>Create Song</h5>
