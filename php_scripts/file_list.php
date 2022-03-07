@@ -12,7 +12,7 @@
         array_multisort($songsnew, SORT_ASC, $item); // sort in ascending order
 
         foreach ($item as $prop) {
-            echo "<li><a href=\"./users/ccatura/songs/php/".$prop['file'].".php\">".$prop['title']." <hr>".$prop['artist']."<br/>\n";
+            echo "<li><a href=\"./users/ccatura/songs/php/".$prop['file'].".php\">".$prop['title']." <hr>".$prop['artist']."<br/>\nSetlist: ".$prop['setlist']."\n";
         }
     }
 
