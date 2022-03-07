@@ -1,57 +1,17 @@
-[
-    {
-        "title":    "The Other Side of Life",
-        "artist":   "Charlie Katt",
-        "file":     "the_other_side_of_life"
-    },
-    {
-        "title":    "American Pie",
-        "artist":   "Don McLean",
-        "file":     "file_name"
-    },
-    {
-        "title":    "Gangsta's Paradise",
-        "artist":   "Coolio",
-        "file":     "file_name"
-    },
-    {
-        "title":    "The Great Space Coaster",
-        "artist":   "Misc",
-        "file":     "file_name"
-    },
-    {
-        "title":    "One and Only",
-        "artist":   "Adele",
-        "file":     "file_name"
-    },
-    {
-        "title":    "A Hard Rain's Gonna Fall",
-        "artist":   "Bob Dylan",
-        "file":     "file_name"
-    },
-    {
-        "title":    "A Little Priest",
-        "artist":   "Stephen Sondheim",
-        "file":     "file_name"
-    },
-    {
-        "title":    "A Little Something Refreshing",
-        "artist":   "Eric Stefani",
-        "file":     "file_name"
-    },
-    {
-        "title":    "Around the World",
-        "artist":   "Red Hot Chili Peppers",
-        "file":     "file_name"
-    },
-    {
-        "title":    "Art Eats Art",
-        "artist":   "Orchestral Manoeuvres in the Dark",
-        "file":     "file_name"
-    },
-    {
-        "title":    "Ain't Got No",
-        "artist":   "Hair, the Musical",
-        "file":     "file_name"
-    }
-]
+{"songs":[
+    {"title":"The Other Side of Life", "artist":"Charlie Katt", "file":"the_other_side_of_life"},
+    {"title":"1904","artist":"The Tallest Man on Earth", "file":"file_name"},
+    {"title":"#40","artist":"Dave Matthews", "file":"file_name"},
+    {"title":"40oz to Freedom","artist":"Sublime", "file":"file_name"},
+    {"title":"#41","artist":"Dave Matthews", "file":"file_name"},
+    {"title":"American Girl","artist":"Tom Petty", "file":"file_name"},
+    {"title":"American Music","artist":"Violent Femmes", "file":"file_name"},
+    {"title":"American Pie","artist":"Don McLean", "file":"file_name"},
+    {"title":"And it Stoned Me","artist":"Van Morrison", "file":"file_name"},
+    {"title":"A Sailor's Christmas","artist":"Jimmy Buffett", "file":"file_name"},
+    {"title":"Badfish","artist":"Sublime", "file":"file_name"},
+    {"title":"Banana Pancakes","artist":"Jack Johnson", "file":"file_name"},
+    {"title":"Barefoot Children","artist":"Jimmy Buffett", "file":"file_name"},
+    {"title":"Big Parade","artist":"The Lumineers", "file":"file_name"}
+    ]
+}

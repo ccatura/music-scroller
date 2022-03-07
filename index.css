@@ -44,12 +44,12 @@ a:hover {
 }
 
 .file-ops {
-    /* border: 3px solid green; */
+    border: 3px solid green;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    /* width: 100%; */
+    width: 100%;
 }
 
 .vert-space {
@@ -57,13 +57,13 @@ a:hover {
 }
 
 .file-list {
-    /* border: 1px solid blue; */
+    border: 1px solid blue;
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
     list-style-type: none;
-    /* width: 95%; */
+    width: 95%;
 }
 
 .file-list li {
@@ -74,6 +74,7 @@ a:hover {
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px black;
+    font-size: .8em;
 }
 
 .buttons-header {
