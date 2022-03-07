@@ -44,7 +44,7 @@ a:hover {
 }
 
 .file-ops {
-    border: 3px solid green;
+    /* border: 3px solid green; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
@@ -57,7 +57,7 @@ a:hover {
 }
 
 .file-list {
-    border: 1px solid blue;
+    /* border: 1px solid blue; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: center;
