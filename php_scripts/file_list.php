@@ -14,6 +14,8 @@
         $sortAs = 'setlist';
     }
 
+    echo "<li>* Only the first song works, so far.\n";
+
     foreach($songs as $item) {
         $songsnew = array_column($item, $sortAs); // sort by setlist
         array_multisort($songsnew, SORT_ASC, $item); // sort in ascending order
