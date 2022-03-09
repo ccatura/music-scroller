@@ -14,6 +14,7 @@
         $sortAs = 'artist';
     }
 
+    
     echo "<li>* Only the first song works, so far.\n";
 
     foreach($songs as $item) {
