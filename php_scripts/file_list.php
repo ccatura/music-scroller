@@ -11,7 +11,7 @@
     {
        $sortAs = $_GET['sort'];
     } else {
-        $sortAs = 'setlist';
+        $sortAs = 'artist';
     }
 
     echo "<li>* Only the first song works, so far.\n";
