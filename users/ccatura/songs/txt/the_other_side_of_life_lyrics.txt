@@ -1,3 +1,5 @@
+<div class="song-section">To start, press the START button at the top left.<br>You can adjust the speed or the size, so far, with the corresponding buttons.</div>
+
 <div class="song-title">The Other Side of Life</div>
 <div class="song-sub-title">© April 22, 2014 Charlie Katt • www.charliekatt.com</div>
 
