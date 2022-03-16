@@ -10,35 +10,64 @@
 <body>
 
 <div class="wrapper">
-    <h2>Title</h2>
+    <div class="header">
+        <h1 class="page-title">Create Song</h1>
+        <div class="text-add-remove">Add Part</div>
+        <div title="Add Part" class="add-remove-part">+</div>
+    </div>
+
+    <div class="part-header">
+        <h2>Title</h2>
+    </div>
     <input type="text" placeholder="Title">
 
-    <h2>Sub-Title</h2>
+    <div class="part-header">
+        <h2>Sub-Title</h2>
+    </div>
     <input type="text" placeholder="Sub-Title">
 
-    <select>
-        <option value="volvo">Verse 1</option>
-        <option value="saab">Chorus</option>
-        <option value="mercedes">Bridge</option>
-        <option value="audi">Lift</option>
-    </select>
-    <textarea cols="30" rows="10" placeholder="Verse 1"></textarea>
+    <div class="part-header">
+        <select>
+            <option value="volvo">Verse 1</option>
+            <option value="saab">Chorus</option>
+            <option value="mercedes">Bridge</option>
+            <option value="audi">Lift</option>
+        </select>
+        <div class="text-add-remove">Remove Part</div>
+        <div class="add-remove-part" title="Remove Part">-</div>
+    </div>
+    <textarea class="song-part" cols="30" rows="10"></textarea>
 
-    <select>
-        <option value="volvo">Verse 2</option>
-        <option value="saab" selected>Chorus</option>
-        <option value="mercedes">Bridge</option>
-        <option value="audi">Lift</option>
-    </select>
-    <textarea cols="30" rows="10" placeholder="Chorus"></textarea>
 
-    <select>
-        <option value="volvo">Verse 2</option>
-        <option value="saab">Chorus</option>
-        <option value="mercedes">Bridge</option>
-        <option value="audi">Lift</option>
-    </select>
-    <textarea cols="30" rows="10" placeholder="Verse 2"></textarea>
+    <div class="part-header">
+        <select>
+            <option value="volvo">Verse 2</option>
+            <option value="saab" selected>Chorus</option>
+            <option value="mercedes">Bridge</option>
+            <option value="audi">Lift</option>
+        </select>
+        <div class="text-add-remove">Remove Part</div>
+        <div class="add-remove-part" title="Remove Part">-</div>
+    </div>
+    <textarea class="song-part" cols="30" rows="10"></textarea>
+
+
+
+    <div class="part-header">
+        <select>
+            <option value="volvo">Verse 2</option>
+            <option value="saab">Chorus</option>
+            <option value="mercedes">Bridge</option>
+            <option value="audi">Lift</option>
+        </select>
+        <div class="text-add-remove">Remove Part</div>
+        <div class="add-remove-part" title="Remove Part">-</div>
+    </div>
+    <textarea class="song-part" cols="30" rows="10"></textarea>
+
+<button class="create-song-button">Create Song!</button>
+
+
 
 
 </div>

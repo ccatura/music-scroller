@@ -14,12 +14,9 @@ body {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
+    align-items: stretch;
     gap: 5px;
     padding: 10px 20px;
-}
-
-h2 {
-    margin: 20px 0 0 0;
 }
 
 select {
@@ -27,5 +24,50 @@ select {
     color: white;
     font-weight: bold;
     font-size: 1.3em;
-    margin: 20px 0 0 0;
+    margin: 0 auto 0 0;
+}
+
+input {
+    font-size: 1.2em;
+}
+
+.page-title {
+    margin: 0 auto 0 0;
+}
+
+.part-header {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 10px 0 0 0;
+}
+
+.add-remove-part {
+    font-weight: bold;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.header {
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.create-song-button {
+    font-size: 1.5em;
+    margin: 10px 0 50px 0;
+}
+
+.text-add-remove {
+    margin: 0 10px 0 0;
+}
+
+.song-part {
+    resize: none;
 }
