@@ -1,0 +1,31 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    gap: 5px;
+    padding: 10px 20px;
+}
+
+h2 {
+    margin: 20px 0 0 0;
+}
+
+select {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+    margin: 20px 0 0 0;
+}
