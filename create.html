@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./create.css">
+    <script src="./create.js" defer></script>
     <title>Document</title>
 </head>
 <body>
@@ -12,58 +13,103 @@
 <div class="wrapper">
     <div class="header">
         <h1 class="page-title">Create Song</h1>
-        <div class="text-add-remove">Add Part</div>
-        <div title="Add Part" class="add-remove-part">+</div>
     </div>
 
-    <div class="part-header">
-        <h2>Title</h2>
+    <div class="section">
+        <div class="part-header">
+            <h2>Title</h2>
+        </div>
+        <input type="text">
     </div>
-    <input type="text" placeholder="Title">
 
-    <div class="part-header">
-        <h2>Sub-Title</h2>
+
+    <div class="section">
+        <div class="part-header">
+            <h2>Subtitle</h2>
+        </div>
+        <input type="text">
+        <div class="part-footer">
+            <div class="text-add-remove add">Add</div>
+            <div title="Add Part" class="add-remove-part add">+</div>
+        </div>
+        </div>
+
+
+
+    <div class="section">
+        <div class="part-header" id="part1">
+            <input type="text" class="custom-field" placeholder="Custom">
+            <select class="part-selection">
+                <option value="verse">Verse 1</option>
+                <option value="chorus">Chorus</option>
+                <option value="bridge">Bridge</option>
+                <option value="lift">Lift</option>
+                <option value="custom">Custom</option>
+            </select>
+            <div class="remove">
+                <div class="text-add-remove">Remove</div>
+                <div class="add-remove-part" title="Remove">-</div>
+            </div>
+        </div>
+        <textarea class="song-part" cols="30" rows="10"></textarea>
+        <div class="part-footer">
+            <div class="add">
+                <div class="text-add-remove">Add</div>
+                <div title="Add Part" class="add-remove-part">+</div>
+            </div>
+        </div>
     </div>
-    <input type="text" placeholder="Sub-Title">
 
-    <div class="part-header">
-        <select>
-            <option value="volvo">Verse 1</option>
-            <option value="saab">Chorus</option>
-            <option value="mercedes">Bridge</option>
-            <option value="audi">Lift</option>
-        </select>
-        <div class="text-add-remove">Remove Part</div>
-        <div class="add-remove-part" title="Remove Part">-</div>
+
+    <div class="section">
+        <div class="part-header" id="part2">
+            <input type="text" class="custom-field" placeholder="Custom">
+            <select class="part-selection">
+                <option value="verse">Verse 1</option>
+                <option value="chorus">Chorus</option>
+                <option value="bridge">Bridge</option>
+                <option value="lift">Lift</option>
+                <option value="custom">Custom</option>
+            </select>
+            <div class="remove">
+                <div class="text-add-remove">Remove</div>
+                <div class="add-remove-part" title="Remove">-</div>
+            </div>
+        </div>
+        <textarea class="song-part" cols="30" rows="10"></textarea>
+        <div class="part-footer">
+            <div class="add">
+                <div class="text-add-remove">Add</div>
+                <div title="Add Part" class="add-remove-part">+</div>
+            </div>
+        </div>
     </div>
-    <textarea class="song-part" cols="30" rows="10"></textarea>
 
 
-    <div class="part-header">
-        <select>
-            <option value="volvo">Verse 2</option>
-            <option value="saab" selected>Chorus</option>
-            <option value="mercedes">Bridge</option>
-            <option value="audi">Lift</option>
-        </select>
-        <div class="text-add-remove">Remove Part</div>
-        <div class="add-remove-part" title="Remove Part">-</div>
+    <div class="section">
+        <div class="part-header" id="part3">
+            <input type="text" class="custom-field" placeholder="Custom">
+            <select class="part-selection">
+                <option value="verse">Verse 1</option>
+                <option value="chorus">Chorus</option>
+                <option value="bridge">Bridge</option>
+                <option value="lift">Lift</option>
+                <option value="custom">Custom</option>
+            </select>
+            <div class="remove">
+                <div class="text-add-remove">Remove</div>
+                <div class="add-remove-part" title="Remove">-</div>
+            </div>
+        </div>
+        <textarea class="song-part" cols="30" rows="10"></textarea>
+        <div class="part-footer">
+            <div class="add">
+                <div class="text-add-remove">Add</div>
+                <div title="Add Part" class="add-remove-part">+</div>
+            </div>
+        </div>
     </div>
-    <textarea class="song-part" cols="30" rows="10"></textarea>
 
-
-
-    <div class="part-header">
-        <select>
-            <option value="volvo">Verse 2</option>
-            <option value="saab">Chorus</option>
-            <option value="mercedes">Bridge</option>
-            <option value="audi">Lift</option>
-        </select>
-        <div class="text-add-remove">Remove Part</div>
-        <div class="add-remove-part" title="Remove Part">-</div>
-    </div>
-    <textarea class="song-part" cols="30" rows="10"></textarea>
 
 <button class="create-song-button">Create Song!</button>
 
