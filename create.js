@@ -15,60 +15,38 @@ wrapper.addEventListener('change', function() {
 
 
 
+// Remove a section
+wrapper.addEventListener('click', function() {
+    var thisRemove = event.target;
+    var thisRemoveParent = thisRemove.parentElement; // get the parent of the clicked element
+    var sectionToRemove = thisRemoveParent.parentElement.parentElement; // gets the top section (to remove) of the clicked element
+
+    if (!sectionToRemove.className.includes("dont-delete")) {
+        if (thisRemoveParent.className == "remove") { // If the class is 'remove' then go ahead with removal
+            sectionToRemove.remove('section');
+        }
+    }
+});
 
 
 
+// Add a section
+wrapper.addEventListener('click', function() {
+    var thisAdd = event.target;
+    var thisAddParent = thisAdd.parentElement; // get the parent of the clicked element
+    var sectionToAdd = thisAddParent.parentElement.parentElement; // gets the top section (to add) of the clicked element
+    // var sectionToAdd = document.querySelector('.duplicatable');
+
+    if (thisAddParent.className == "add") { // If the class is 'add' then go ahead with adding
+        const node = sectionToAdd;
+        const clone = node.cloneNode(true);
+        sectionToAdd.className = "section";
+        sectionToAdd.before(clone);
+        sectionToAdd.querySelector('.song-part').value = "";
+    }
+
+    console.log(document.querySelector('.wrapper').children.length);
+});
 
 
 
-
-// wrapper.addEventListener('change', function() {
-//     var thisSelection = event.target; // this is the selection dropdown list with the choices: verse, chorus, etc.
-//     var parentId = thisSelection.parentElement.id; // this gets the ID of the parent element
-//     var parent = document.querySelector('#' + parentId); // this gets the parent element of the selection dropdown list
-//     var firstChild = parent.querySelector('.custom-field');
-
-//     console.log(thisSelection);
-
-//     if (thisSelection.value == 'custom') {
-//         firstChild.style.display = "block";
-//     } else {
-//         firstChild.style.display = "none";
-//     }
-// });
-
-
-
-
-
-
-
-
-
-
-
-
-// var wrapper = document.querySelector('.wrapper');
-// var customField = document.querySelector('.custom-field');
-
-// wrapper.addEventListener('change', function() {
-//     var wrapperClass = this.className;
-//     var thisSelection = event.target;
-//     var thisSelectionId = thisSelection.id;
-//     var thisSelectionPartName = thisSelection.value;
-//     var parentId = thisSelection.parentElement.id;
-//     var parent = document.querySelector('#' + parentId);
-//     var firstChild = parent.querySelector('.custom-field');
-    
-//     console.log("Parent Id: " + parentId);
-//     console.log("Child: " + firstChild);
-//     console.log("ID: " + thisSelectionId);
-//     console.log("Part Name: " + thisSelectionPartName);
-//     console.log("");
-
-//     if (thisSelectionPartName == 'custom') {
-//         firstChild.style.display = "block";
-//     } else {
-//         firstChild.style.display = "none";
-//     }
-// });
