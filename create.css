@@ -94,6 +94,7 @@ input {
 .song-part {
     resize: none;
     border-radius: 5px;
+    padding: 4px;
 }
 
 .section {

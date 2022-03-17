@@ -1,14 +1,15 @@
 var wrapper = document.querySelector('.wrapper');
-var customField = document.querySelector('.custom-field');
 
 wrapper.addEventListener('change', function() {
     var thisSelection = event.target; // this is the selection dropdown list with the choices: verse, chorus, etc.
     var customField = event.target.parentElement.querySelector('.custom-field'); // this gets the input field with the class name custom-field
 
-    if (thisSelection.value == 'custom') {
-        customField.style.display = "block";
-    } else {
-        customField.style.display = "none";
+    if (thisSelection.tagName == "SELECT") {
+        if (thisSelection.value == 'custom') {
+            customField.style.display = "block";
+        } else {
+            customField.style.display = "none";
+        }
     }
 });
 
