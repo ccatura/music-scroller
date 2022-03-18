@@ -14,67 +14,46 @@ wrapper.addEventListener('change', function() {
 });
 
 
-
 // Remove a section
 wrapper.addEventListener('click', function() {
-    var thisRemove = event.target;
-    var thisRemoveParent = thisRemove.parentElement; // get the parent of the clicked element
-    var sectionToRemove = thisRemoveParent.parentElement.parentElement; // gets the top section (to remove) of the clicked element
     var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper'
+    var thisTarget = event.target;
+    var targetParent = thisTarget.parentElement; // get the parent of the clicked element
+    var targetParentSection = targetParent.parentElement.parentElement; // gets the top section (to remove) of the clicked element
 
+    // Removes current secrtion
     if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
-        if (!sectionToRemove.className.includes("dont-delete")) {
-            if (thisRemoveParent.className == "remove") { // If the class is 'remove' then go ahead with removal
-                sectionToRemove.remove('section');
-            }
+        if (!targetParentSection.className.includes("dont-delete")) {
+            if (targetParent.className == "remove") targetParentSection.remove('section');
         }
     }
-});
 
-
-
-
-// Add a section
-wrapper.addEventListener('click', function() {
-    var thisAdd = event.target;
-    var thisAddParent = thisAdd.parentElement; // get the parent of the clicked element
-    var sectionToAdd = thisAddParent.parentElement.parentElement; // gets the top section (to add) of the clicked element
-    // var sectionToAdd = document.querySelector('.duplicatable');
-
-    if (thisAddParent.className == "add") { // If the class is 'add' then go ahead with adding
-        const node = sectionToAdd;
+    // Adds a section below current one
+    if (targetParent.className == "add") {
+        const node = targetParentSection;
         const clone = node.cloneNode(true);
-        sectionToAdd.className = "section";
-        sectionToAdd.before(clone);
-        sectionToAdd.querySelector('.song-part').value = "";
+        targetParentSection.className = "section";
+        targetParentSection.before(clone);
+        targetParentSection.querySelector('.song-part').value = "";
     }
 
-});
-
-
-
-
-var moveUp = document.querySelector('.move-up');
-var moveDown = document.querySelector('.move-down');
-
-wrapper.addEventListener('click', function() {
-    var thisMoveUp = event.target;
-    var thisMoveUpParent = thisMoveUp.parentElement.parentElement;   
-    var thisMoveDown = event.target;
-    var thisMoveDownParent = thisMoveDown.parentElement.parentElement;
-
-    console.log(thisMoveUpParent);
-    console.log(Array.prototype.indexOf.call(thisMoveUpParent.parentNode.childNodes, thisMoveUpParent));
-
-
+    // Moves a section up one place
     if (event.target.className.includes("move-up")) {
-        if (thisMoveUpParent.previousElementSibling) {
-            thisMoveUpParent.parentNode.insertBefore(thisMoveUpParent, thisMoveUpParent.previousElementSibling);
+        if (targetParent.previousElementSibling) {
+            targetParent.parentNode.insertBefore(targetParent, targetParent.previousElementSibling);
+    
+            console.log(targetParent);
+            console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
         }
     }
+
+    // Moves a section down one place
     if (event.target.className.includes("move-down")) {
-        if (thisMoveDownParent.nextElementSibling) {
-            thisMoveDownParent.parentNode.insertBefore(thisMoveDownParent.nextElementSibling, thisMoveDownParent);
+        if (targetParent.nextElementSibling) {
+            targetParent.parentNode.insertBefore(targetParent.nextElementSibling, targetParent);
+    
+            console.log(targetParent);
+            console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
         }
     }
 });
