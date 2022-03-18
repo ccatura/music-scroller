@@ -1,5 +1,7 @@
 var wrapper = document.querySelector('.wrapper');
+var createSong = document.querySelector('.create-song-button');
 
+// This controls the change of the selection part: verse, chorus, bridge, and custom
 wrapper.addEventListener('change', function() {
     var thisSelection = event.target; // this is the selection dropdown list with the choices: verse, chorus, etc.
     var customField = event.target.parentElement.querySelector('.custom-field'); // this gets the input field with the class name custom-field
@@ -13,7 +15,7 @@ wrapper.addEventListener('change', function() {
     }
 });
 
-
+// This controls the add, remove, and movemoent of sections
 wrapper.addEventListener('click', function() {
     var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper'
     var thisTarget = event.target;
@@ -42,9 +44,9 @@ wrapper.addEventListener('click', function() {
         if (moverTargetParentSection.previousElementSibling) {
             moverTargetParentSection.parentNode.insertBefore(moverTargetParentSection, moverTargetParentSection.previousElementSibling);
 
-            console.log(moverTargetParentSection);
+            // console.log(moverTargetParentSection);
 
-            console.log(targetParentSection);
+            // console.log(targetParentSection);
             // console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
         }
     }
@@ -54,9 +56,27 @@ wrapper.addEventListener('click', function() {
         if (moverTargetParentSection.nextElementSibling) {
             moverTargetParentSection.parentNode.insertBefore(moverTargetParentSection.nextElementSibling, moverTargetParentSection);
     
-            console.log(moverTargetParentSection);
+            // console.log(moverTargetParentSection);
             // console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
         }
     }
-});
 
+
+    // This controls the output of all the fields to create the final song
+    if (event.target.className == "create-song-button") {
+        var fieldText = "";
+        var divs = "";
+        var songText = document.getElementsByClassName("song-text");
+        for (var i = 0; i < songText.length; i++) {
+            if (i == 0) divs = "<div class='title'>";
+            if (i == 1) divs = "<div class='sub-title'>";
+            if (i > 1 ) divs = "<div class='verse'>";
+            fieldText += divs + "\n" + songText[i].value + "\n</div>\n\n";
+        }
+        console.log(fieldText);
+    }
+
+
+
+
+});
