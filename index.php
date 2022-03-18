@@ -13,7 +13,7 @@
     
 <div class="wrapper">
     <div class="file-ops">
-        <div class="header">
+        <!-- <div class="header">
             <h6><input type="text"><button>Search</button></h6>
             <h6>Logged in as: <strong>ccatura</strong></h6>
         </div>
@@ -21,7 +21,8 @@
             <h5>Create Song</h5>
             <input type="text" placeholder="Title">
             <button class="big-button">Create</button>
-        </div>
+        </div> -->
+        <a href="./create.html"><h5>Create Song</h5></a>
         <div class="vert-space"></div>
         <h5>Load Song</h5>
         <ul class="file-list">
