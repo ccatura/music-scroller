@@ -14,7 +14,6 @@ wrapper.addEventListener('change', function() {
 });
 
 
-// Remove a section
 wrapper.addEventListener('click', function() {
     var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper'
     var thisTarget = event.target;
@@ -38,22 +37,25 @@ wrapper.addEventListener('click', function() {
     }
 
     // Moves a section up one place
+    var moverTargetParentSection = (targetParent.parentElement);
     if (event.target.className.includes("move-up")) {
-        if (targetParent.previousElementSibling) {
-            targetParent.parentNode.insertBefore(targetParent, targetParent.previousElementSibling);
-    
-            console.log(targetParent);
-            console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
+        if (moverTargetParentSection.previousElementSibling) {
+            moverTargetParentSection.parentNode.insertBefore(moverTargetParentSection, moverTargetParentSection.previousElementSibling);
+
+            console.log(moverTargetParentSection);
+
+            console.log(targetParentSection);
+            // console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
         }
     }
 
     // Moves a section down one place
     if (event.target.className.includes("move-down")) {
-        if (targetParent.nextElementSibling) {
-            targetParent.parentNode.insertBefore(targetParent.nextElementSibling, targetParent);
+        if (moverTargetParentSection.nextElementSibling) {
+            moverTargetParentSection.parentNode.insertBefore(moverTargetParentSection.nextElementSibling, moverTargetParentSection);
     
-            console.log(targetParent);
-            console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
+            console.log(moverTargetParentSection);
+            // console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
         }
     }
 });
