@@ -10,68 +10,64 @@
 </head>
 <body>
 
-<div class="wrapper">
-    <div class="header">
-        <h1 class="page-title">Create Song</h1>
-    </div>
-
-    <div class="section">
-        <div class="part-header">
-            <h2>Title</h2>
+    <div class="wrapper">
+        <div class="header">
+            <h1 class="page-title">Create Song</h1>
         </div>
-        <input type="text">
-    </div>
 
-
-    <div class="section">
-        <div class="part-header">
-            <h2>Subtitle</h2>
-        </div>
-        <input type="text">
-        <!-- <div class="part-footer">
-            <div class="add">
-                <div class="text-add-remove add">Add</div>
-                <div title="Add Part" class="add-remove-part add">+</div>
+        <div class="section">
+            <div class="part-header">
+                <h2>Title</h2>
             </div>
-        </div> -->
-    </div>
-
-
-    <!-- Song Part Section -->
-    <div class="duplicatable section">
-        <div class="part-header">
-            <input type="text" class="custom-field" placeholder="Custom">
-            <select class="part-selection">
-                <option value="verse">Verse</option>
-                <option value="chorus">Chorus</option>
-                <option value="bridge">Bridge</option>
-                <option value="lift">Lift</option>
-                <option value="custom">Custom</option>
-            </select>
-            <div class="remove">
-                <div class="text-add-remove">Remove</div>
-                <div class="add-remove-part" title="Remove">-</div>
-            </div>
+            <input type="text">
         </div>
-        <textarea class="song-part" cols="30" rows="10"></textarea>
-        <div class="part-footer">
-            <div class="add">
-                <div class="text-add-remove">Add</div>
-                <div title="Add Part" class="add-remove-part">+</div>
+
+
+        <div class="section">
+            <div class="part-header">
+                <h2>Subtitle</h2>
+            </div>
+            <input type="text">
+        </div>
+
+
+        <!-- Song Part Section -->
+        <div class="duplicatable section">
+            <div class="part-header">
+                <input type="text" class="custom-field" placeholder="Custom">
+                <select class="part-selection">
+                    <option value="verse">Verse</option>
+                    <option value="chorus">Chorus</option>
+                    <option value="bridge">Bridge</option>
+                    <option value="lift">Lift</option>
+                    <option value="custom">Custom</option>
+                </select>
+                <div class="remove">
+                    <div class="text-add-remove">Remove</div>
+                    <div class="add-remove-part" title="Remove">-</div>
+                </div>
+            </div>
+            <textarea class="song-part" cols="30" rows="10"></textarea>
+            <div class="part-footer">
+                <div class="arrows move-up">&#8593;</div>
+                <div class="arrows move-down">&#8595;</div>
+                <div class="add">
+                    <div class="text-add-remove">Add</div>
+                    <div title="Add Part" class="add-remove-part">+</div>
+                </div>
             </div>
         </div>
+        <!-- Song Part Section End -->
+
+
+
+
+        <button class="create-song-button">Create Song!</button>
+
+
+
+
     </div>
-    <!-- Song Part Section End -->
-
-
-
-
-<button class="create-song-button">Create Song!</button>
-
-
-
-
-</div>
 
 
 

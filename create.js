@@ -20,13 +20,17 @@ wrapper.addEventListener('click', function() {
     var thisRemove = event.target;
     var thisRemoveParent = thisRemove.parentElement; // get the parent of the clicked element
     var sectionToRemove = thisRemoveParent.parentElement.parentElement; // gets the top section (to remove) of the clicked element
+    var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper'
 
-    if (!sectionToRemove.className.includes("dont-delete")) {
-        if (thisRemoveParent.className == "remove") { // If the class is 'remove' then go ahead with removal
-            sectionToRemove.remove('section');
+    if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
+        if (!sectionToRemove.className.includes("dont-delete")) {
+            if (thisRemoveParent.className == "remove") { // If the class is 'remove' then go ahead with removal
+                sectionToRemove.remove('section');
+            }
         }
     }
 });
+
 
 
 
@@ -45,8 +49,33 @@ wrapper.addEventListener('click', function() {
         sectionToAdd.querySelector('.song-part').value = "";
     }
 
-    console.log(document.querySelector('.wrapper').children.length);
 });
 
 
+
+
+var moveUp = document.querySelector('.move-up');
+var moveDown = document.querySelector('.move-down');
+
+wrapper.addEventListener('click', function() {
+    var thisMoveUp = event.target;
+    var thisMoveUpParent = thisMoveUp.parentElement.parentElement;   
+    var thisMoveDown = event.target;
+    var thisMoveDownParent = thisMoveDown.parentElement.parentElement;
+
+    console.log(thisMoveUpParent);
+    console.log(Array.prototype.indexOf.call(thisMoveUpParent.parentNode.childNodes, thisMoveUpParent));
+
+
+    if (event.target.className.includes("move-up")) {
+        if (thisMoveUpParent.previousElementSibling) {
+            thisMoveUpParent.parentNode.insertBefore(thisMoveUpParent, thisMoveUpParent.previousElementSibling);
+        }
+    }
+    if (event.target.className.includes("move-down")) {
+        if (thisMoveDownParent.nextElementSibling) {
+            thisMoveDownParent.parentNode.insertBefore(thisMoveDownParent.nextElementSibling, thisMoveDownParent);
+        }
+    }
+});
 

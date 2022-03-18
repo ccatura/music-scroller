@@ -17,6 +17,7 @@ body {
     align-items: stretch;
     gap: 5px;
     padding: 10px 20px;
+    margin: 0 0 60px 0;
 }
 
 select {
@@ -49,7 +50,7 @@ input {
        /* border: 2px solid green; */
        display: flex;
        flex-flow: row nowrap;
-       justify-content: flex-end;
+       justify-content: flex-start;
        align-items: center;
 }
 
@@ -69,12 +70,15 @@ input {
 
 .create-song-button {
     font-size: 1.5em;
-    margin: 10px 0 50px 0;
     color: white;
     background-color: green;
     border: none;
     height: 40px;
     border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
 }
 
 .create-song-button:hover {
@@ -114,7 +118,9 @@ input {
     display: flex;
     flex-flow: row nowrap;
     justify-content: space-between;
-    align-items: center;}
+    align-items: center;
+    margin: 0 0 0 auto;
+}
 
 .remove {
     color: red;
@@ -133,4 +139,11 @@ input {
     display: none;
     width: 110px;
     margin: 0 10px 0 0;
+}
+
+.arrows {
+    margin: 0 25px 0 0;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
 }
