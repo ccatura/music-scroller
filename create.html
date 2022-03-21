@@ -29,56 +29,57 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         <div class="header">
             <h1 class="page-title">Create Song</h1>
         </div>
-
-        <div class="section">
-            <div class="part-header">
-                <h2>Title</h2>
+        <form action="insert.php" method="post">
+            <div class="section">
+                <div class="part-header">
+                    <h2>Title</h2>
+                </div>
+                <input name="title" type="text" class="song-text">
             </div>
-            <input type="text" class="song-text">
-        </div>
 
 
-        <div class="section">
-            <div class="part-header">
-                <h2>Subtitle</h2>
+            <div class="section">
+                <div class="part-header">
+                    <h2>Artist</h2>
+                </div> 
+                <input name="artist" type="text" class="song-text">
             </div>
-            <input type="text" class="song-text">
-        </div>
 
 
-        <!-- Song Part Section -->
-        <div class="duplicatable section">
-            <div class="part-header">
-                <input type="text" class="custom-field" placeholder="Custom">
-                <select class="part-selection song-text">
-                    <option value="verse">Verse</option>
-                    <option value="chorus">Chorus</option>
-                    <option value="bridge">Bridge</option>
-                    <option value="lift">Lift</option>
-                    <option value="custom">Custom</option>
-                </select>
-                <div class="remove">
-                    <div class="text-add-remove">Remove</div>
-                    <div class="add-remove-part" title="Remove">-</div>
+            <!-- Song Part Section -->
+            <div class="duplicatable section">
+                <div class="part-header">
+                    <input type="text" class="custom-field" placeholder="Custom">
+                    <select class="part-selection song-text">
+                        <option value="verse">Verse</option>
+                        <option value="chorus">Chorus</option>
+                        <option value="bridge">Bridge</option>
+                        <option value="lift">Lift</option>
+                        <option value="custom">Custom</option>
+                    </select>
+                    <div class="remove">
+                        <div class="text-add-remove">Remove</div>
+                        <div class="add-remove-part" title="Remove">-</div>
+                    </div>
+                </div>
+                <textarea name="lyrics" class="song-part song-text" cols="30" rows="10"></textarea>
+                <div class="part-footer">
+                    <div class="arrows move-up">&#8593;</div>
+                    <div class="arrows move-down">&#8595;</div>
+                    <div class="add">
+                        <div class="text-add-remove">Add</div>
+                        <div title="Add Part" class="add-remove-part">+</div>
+                    </div>
                 </div>
             </div>
-            <textarea class="song-part song-text" cols="30" rows="10"></textarea>
-            <div class="part-footer">
-                <div class="arrows move-up">&#8593;</div>
-                <div class="arrows move-down">&#8595;</div>
-                <div class="add">
-                    <div class="text-add-remove">Add</div>
-                    <div title="Add Part" class="add-remove-part">+</div>
-                </div>
+            <!-- Song Part Section End -->
+
+
+
+            <div class="button-section">
+                <button name="submit" class="create-song-button">Create Song!</button>
             </div>
-        </div>
-        <!-- Song Part Section End -->
-
-
-
-        <div class="button-section">
-            <button class="create-song-button">Create Song!</button>
-        </div>
+        </form>
 
 
 
