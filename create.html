@@ -1,3 +1,18 @@
+<!-- <?php
+$servername = "sql647.main-hosting.eu";
+$username = "u682819236_ccatura_music";
+include("./php_scripts/pword.php");
+$dbname = "u682819236_music_scroller";
+
+$conn = mysqli_connect($servername, $username, $password, $dbname);
+// $result = mysqli_query($conn,"SELECT * FROM `users` JOIN `songs` ON users.username = songs.username WHERE songs.username = 'ccatura';");
+
+    // while ($row = mysqli_fetch_assoc($result)) {
+    //     echo "<li>".$row['song_title']." <br>".$row['artist']."<br/>".$row['album'];
+    // }
+?> -->
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +34,7 @@
             <div class="part-header">
                 <h2>Title</h2>
             </div>
-            <input type="text">
+            <input type="text" class="song-text">
         </div>
 
 
@@ -27,7 +42,7 @@
             <div class="part-header">
                 <h2>Subtitle</h2>
             </div>
-            <input type="text">
+            <input type="text" class="song-text">
         </div>
 
 
@@ -35,7 +50,7 @@
         <div class="duplicatable section">
             <div class="part-header">
                 <input type="text" class="custom-field" placeholder="Custom">
-                <select class="part-selection">
+                <select class="part-selection song-text">
                     <option value="verse">Verse</option>
                     <option value="chorus">Chorus</option>
                     <option value="bridge">Bridge</option>
@@ -47,7 +62,7 @@
                     <div class="add-remove-part" title="Remove">-</div>
                 </div>
             </div>
-            <textarea class="song-part" cols="30" rows="10"></textarea>
+            <textarea class="song-part song-text" cols="30" rows="10"></textarea>
             <div class="part-footer">
                 <div class="arrows move-up">&#8593;</div>
                 <div class="arrows move-down">&#8595;</div>

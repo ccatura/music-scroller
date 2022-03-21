@@ -1,6 +1,7 @@
 var wrapper = document.querySelector('.wrapper');
 // var createSong = document.querySelector('.create-song-button');
 
+
 // This controls the change of the selection part: verse, chorus, bridge, and custom
 wrapper.addEventListener('change', function() {
     var thisSelection = event.target; // this is the selection dropdown list with the choices: verse, chorus, etc.
@@ -14,8 +15,6 @@ wrapper.addEventListener('change', function() {
         }
     }
 });
-
-
 
 
 // This controls the add, remove, and movemoent of sections
@@ -86,5 +85,4 @@ wrapper.addEventListener('click', function() {
         }
         return parentSection;
     }
-
 });
