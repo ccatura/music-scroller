@@ -19,8 +19,8 @@ wrapper.addEventListener('change', function() {
 
 // This controls the add, remove, and movemoent of sections
 wrapper.addEventListener('click', function() {
-    var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper'
-    var targetParentSection = getMotherSection((event.target), "section");
+    var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper
+    var targetParentSection = getMotherSection((event.target), "section"); 
 
     // Removes current secrtion
     if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
@@ -66,9 +66,6 @@ wrapper.addEventListener('click', function() {
         }
         console.log(fieldText);
     }
-
-
-    // console.log(getMotherSection((event.target), "section"));
 
 
     function getMotherSection(targetElement, classNameToFind) {
