@@ -1,5 +1,5 @@
 var wrapper = document.querySelector('.wrapper');
-var createSong = document.querySelector('.create-song-button');
+// var createSong = document.querySelector('.create-song-button');
 
 // This controls the change of the selection part: verse, chorus, bridge, and custom
 wrapper.addEventListener('change', function() {
@@ -21,19 +21,17 @@ wrapper.addEventListener('change', function() {
 // This controls the add, remove, and movemoent of sections
 wrapper.addEventListener('click', function() {
     var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper'
-    var thisTarget = event.target;
-    var targetParent = thisTarget.parentElement; // get the parent of the clicked element
-    var targetParentSection = targetParent.parentElement.parentElement; // gets the top section (to remove) of the clicked element
+    var targetParentSection = getMotherSection((event.target), "section");
 
     // Removes current secrtion
     if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
         if (!targetParentSection.className.includes("dont-delete")) {
-            if (targetParent.className == "remove") targetParentSection.remove('section');
+            if ((event.target).parentElement.className == "remove") targetParentSection.remove('section');
         }
     }
 
     // Adds a section below current one
-    if (targetParent.className == "add") {
+    if ((event.target).parentElement.className == "add") {
         const node = targetParentSection;
         const clone = node.cloneNode(true);
         targetParentSection.className = "section";
@@ -42,25 +40,16 @@ wrapper.addEventListener('click', function() {
     }
 
     // Moves a section up one place
-    var moverTargetParentSection = (targetParent.parentElement);
     if (event.target.className.includes("move-up")) {
-        if (moverTargetParentSection.previousElementSibling) {
-            moverTargetParentSection.parentNode.insertBefore(moverTargetParentSection, moverTargetParentSection.previousElementSibling);
-
-            // console.log(moverTargetParentSection);
-
-            // console.log(targetParentSection);
-            // console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
+        if (targetParentSection.previousElementSibling) {
+            targetParentSection.parentNode.insertBefore(targetParentSection, targetParentSection.previousElementSibling);
         }
     }
 
     // Moves a section down one place
     if (event.target.className.includes("move-down")) {
-        if (moverTargetParentSection.nextElementSibling) {
-            moverTargetParentSection.parentNode.insertBefore(moverTargetParentSection.nextElementSibling, moverTargetParentSection);
-    
-            // console.log(moverTargetParentSection);
-            // console.log(Array.prototype.indexOf.call(targetParent.parentNode.childNodes, targetParent));
+        if (targetParentSection.nextElementSibling) {
+            targetParentSection.parentNode.insertBefore(targetParentSection.nextElementSibling, targetParentSection);
         }
     }
 
@@ -80,18 +69,22 @@ wrapper.addEventListener('click', function() {
     }
 
 
-    const sect = "section"; // string to search for inside classname
-    var parentSection = (event.target);
-    var fnd = parentSection.className;
-    var x = 1;
+    // console.log(getMotherSection((event.target), "section"));
 
-        while (!fnd.includes(sect)) { // keeps looping while string is not found
+
+    function getMotherSection(targetElement, classNameToFind) {
+        const sect = classNameToFind; // string to search for inside classname
+        var parentSection = targetElement;
+        var x = 0;
+
+        while (!parentSection.className.includes(sect)) { // keeps looping while string is not found
             parentSection = parentSection.parentElement;
-            console.log(parentSection.className);
-            fnd = parentSection.className;
             x++;
-            if (x > 15) break;
+            if (x > 15) { // just in case i missed something and end up in an endless loop
+                break;
+            }
         }
-
+        return parentSection;
+    }
 
 });
