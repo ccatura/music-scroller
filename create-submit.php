@@ -2,13 +2,13 @@
 include_once 'db.php';
 if(isset($_POST['submit']))
 {    
-    $user = $_POST['username'];
-    $title = $_POST['song_title'];
-    $artist = $_POST['artist'];
-    $lyrics = $_POST['song_lyrics'];
-    
-    $sql = "INSERT INTO songs (user, song_title, artist, song_lyrics)
-    VALUES ('$user', '$title', '$artist', '$lyrics')";
+    $username = 'ccatura';
+    $song_title = $_POST['song_title'];
+    $song_artist = $_POST['artist'];
+    $song_lyrics = $_POST['song_lyrics'];
+
+    $sql = "INSERT INTO `songs` (`username`, `song_title`, `artist`, `song_lyrics`)
+    VALUES ('$username', '$song_title', '$song_artist', '$song_lyrics')";
 
     if (mysqli_query($conn, $sql)) {
        echo "New record has been added successfully !";
@@ -17,4 +17,5 @@ if(isset($_POST['submit']))
     }
     mysqli_close($conn);
 }
+
 ?>

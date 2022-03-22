@@ -13,6 +13,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
 ?> -->
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,12 +30,12 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
         <div class="header">
             <h1 class="page-title">Create Song</h1>
         </div>
-        <form action="insert.php" method="post">
+        <form action="create-submit.php" method="post">
             <div class="section">
                 <div class="part-header">
                     <h2>Title</h2>
                 </div>
-                <input name="title" type="text" class="song-text">
+                <input name="song_title" type="text" class="song-text">
             </div>
 
 
@@ -62,7 +63,7 @@ $conn = mysqli_connect($servername, $username, $password, $dbname);
                         <div class="add-remove-part" title="Remove">-</div>
                     </div>
                 </div>
-                <textarea name="lyrics" class="song-part song-text" cols="30" rows="10"></textarea>
+                <textarea name="song_lyrics" class="song-part song-text" cols="30" rows="10"></textarea>
                 <div class="part-footer">
                     <div class="arrows move-up">&#8593;</div>
                     <div class="arrows move-down">&#8595;</div>
