@@ -22,14 +22,12 @@ wrapper.addEventListener('click', function() {
     var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper
     var targetParentSection = getMotherSection((event.target), "section"); 
 
-    console.log(items);
-
     // Removes current secrtion
-    // if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
+    if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
         if (!targetParentSection.className.includes("dont-delete")) {
             if ((event.target).parentElement.className == "remove") targetParentSection.remove('section');
         }
-    // }
+    }
 
     // Adds a section below current one
     if ((event.target).parentElement.className == "add") {

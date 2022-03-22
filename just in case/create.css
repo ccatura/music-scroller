@@ -1,0 +1,149 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 5px;
+    padding: 10px 20px;
+    margin: 0 0 60px 0;
+}
+
+select {
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2em;
+    margin: 0 auto 0 0;
+    border-radius: 5px;
+}
+
+input {
+    font-size: 1.1em;
+    border-radius: 5px;
+}
+
+.page-title {
+    margin: 0 auto 0 0;
+}
+
+.part-header {
+    /* border: 2px solid red; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.part-footer {
+       /* border: 2px solid green; */
+       display: flex;
+       flex-flow: row nowrap;
+       justify-content: flex-start;
+       align-items: center;
+}
+
+.add-remove-part {
+    font-weight: bold;
+    font-size: 1.8em;
+}
+
+.header {
+    /* border: 2px solid blue; */
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+}
+
+.create-song-button {
+    font-size: 1.5em;
+    color: white;
+    background-color: green;
+    border: none;
+    height: 40px;
+    border-radius: 10px;
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+}
+
+.create-song-button:hover {
+    background-color: rgb(24, 168, 24);
+}
+
+.create-song-button:active {
+    background-color: rgb(0, 104, 0);
+    transform: translateY(2px);
+}
+
+.text-add-remove {
+    margin: 0 10px 0 0;
+    font-weight: bold;
+}
+
+.song-part {
+    resize: none;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+.section {
+    background-color: rgb(43, 43, 43);
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 5px;
+    padding: 10px 20px;
+    margin: 0 0 10px 0;
+    border-radius: 10px;
+}
+
+.add {
+    color: green;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 0 auto;
+}
+
+.remove {
+    color: red;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add,
+.remove {
+    cursor: pointer;
+}
+
+.custom-field {
+    display: none;
+    width: 110px;
+    margin: 0 10px 0 0;
+}
+
+.arrows {
+    margin: 0 25px 0 0;
+    font-size: 2em;
+    font-weight: bold;
+    cursor: pointer;
+}
