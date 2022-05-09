@@ -1,14 +1,9 @@
 <?php
-$servername = "sql647.main-hosting.eu";
-$username = "u682819236_ccatura_music";
-include("pword.php");
-$dbname = "u682819236_music_scroller";
+include_once 'db.php';
 
 
 
-
-// if(count($_POST)>0) {
-	$conn = mysqli_connect($servername, $username, $password, $dbname);
+	//$conn = mysqli_connect($servername, $username, $password, $dbname);
 	$result = mysqli_query($conn,"SELECT * FROM `users` JOIN `songs` ON users.username = songs.username WHERE songs.username = 'ccatura';");
 
     while ($row = mysqli_fetch_assoc($result)) {

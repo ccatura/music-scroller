@@ -17,22 +17,22 @@ wrapper.addEventListener('change', function() {
 });
 
 
-// This controls the add, remove, and movemoent of sections
+// This controls the add, remove, and movement of sections
 wrapper.addEventListener('click', function() {
     var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper
     var targetParentSection = getMotherSection((event.target), "section"); 
 
     console.log(items);
 
-    // Removes current secrtion
+    // Removes current section
     // if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
         if (!targetParentSection.className.includes("dont-delete")) {
-            if ((event.target).parentElement.className == "remove") targetParentSection.remove('section');
+            if ((event.target).className == "remove-click") targetParentSection.remove('section');
         }
     // }
 
     // Adds a section below current one
-    if ((event.target).parentElement.className == "add") {
+    if ((event.target).className == "add-click") {
         const node = targetParentSection;
         const clone = node.cloneNode(true);
         targetParentSection.className = "section";
