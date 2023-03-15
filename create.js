@@ -1,86 +1,76 @@
-var wrapper = document.querySelector('.wrapper');
-// var createSong = document.querySelector('.create-song-button');
+var createContainer = document.querySelector('.create-container');
+var addBelow = document.querySelector('.add-below');
+var confirmRemoveBox = document.querySelector('.confirm-remove');
+var confirmRemoveYes = document.querySelector('#confirm-remove-yes');
+var confirmRemoveNo  = document.querySelector('#confirm-remove-no');
 
 
-// This controls the change of the selection part: verse, chorus, bridge, and custom
-wrapper.addEventListener('change', function() {
-    var thisSelection = event.target; // this is the selection dropdown list with the choices: verse, chorus, etc.
-    var customField = event.target.parentElement.querySelector('.custom-field'); // this gets the input field with the class name custom-field
 
-    if (thisSelection.tagName == "SELECT") {
-        if (thisSelection.value == 'custom') {
-            customField.style.display = "block";
-        } else {
-            customField.style.display = "none";
-        }
-    }
-});
-
-
-// This controls the add, remove, and movement of sections
-wrapper.addEventListener('click', function() {
-    var items = document.querySelector('.wrapper').children.length; // how many items inside 'wrapper
-    var targetParentSection = getMotherSection((event.target), "section"); 
-
-    console.log(items);
-
-    // Removes current section
-    // if (items > 5) { // if there are less than 6 items in wrapper, we do'nt want to delete anymore
-        if (!targetParentSection.className.includes("dont-delete")) {
-            if ((event.target).className == "remove-click") targetParentSection.remove('section');
-        }
-    // }
-
-    // Adds a section below current one
-    if ((event.target).className == "add-click") {
-        const node = targetParentSection;
-        const clone = node.cloneNode(true);
-        targetParentSection.className = "section";
-        targetParentSection.before(clone);
-        targetParentSection.querySelector('.song-part').value = "";
+createContainer.addEventListener('click', function() {
+    var thisSelection = event.target;
+    
+    if(thisSelection.classList.contains('clicker')) {
+        var motherSection = getMotherSection(thisSelection, 'mother-section').className;
+        console.log('ID: ' + thisSelection.id + '\nClass List: ' + thisSelection.className);
+        console.log('Mother Section: ' + motherSection);
+        console.log('');
     }
 
-    // Moves a section up one place
-    if (event.target.className.includes("move-up")) {
-        if (targetParentSection.previousElementSibling) {
-            targetParentSection.parentNode.insertBefore(targetParentSection, targetParentSection.previousElementSibling);
-        }
-    }
 
-    // Moves a section down one place
-    if (event.target.className.includes("move-down")) {
-        if (targetParentSection.nextElementSibling) {
-            targetParentSection.parentNode.insertBefore(targetParentSection.nextElementSibling, targetParentSection);
+    // Adds section above or below current one - or removes section
+    if (thisSelection.className.includes('actionbutton')) {
+        var targetParentSection = getMotherSection((event.target), "song-part-mother-section"); 
+            if (thisSelection.className.includes('add-below') || thisSelection.className.includes('add-above')) {
+            const clone = targetParentSection.cloneNode(true);
+            if(thisSelection.className.includes('add-below')) {
+                targetParentSection.after(clone);
+            } else if (thisSelection.className.includes('add-above')) {
+                targetParentSection.before(clone);
+            }
+            clone.id = Math.random().toString().slice(2,20);
+            clone.querySelector('.song-info-textarea').value = '';
+        } else if (thisSelection.className.includes('remove')) {
+            confirmRemove(targetParentSection.id);
+            var currentRemove = targetParentSection.id;
         }
     }
 
 
-    // This controls the output of all the fields to create the final song
-    if (event.target.className == "create-song-button") {
-        var fieldText = "";
-        var divs = "";
-        var songText = document.getElementsByClassName("song-text");
-        for (var i = 0; i < songText.length; i++) {
-            if (i == 0) divs = "<div class='title'>";
-            if (i == 1) divs = "<div class='sub-title'>";
-            if (i > 1 ) divs = "<div class='verse'>";
-            fieldText += divs + "\n" + songText[i].value + "\n</div>\n\n";
-        }
-        console.log(fieldText);
+
+
+
+    function confirmRemove(id) {
+        confirmRemoveBox.style.display = 'flex';
+        confirmRemoveBox.setAttribute("name", id);
     }
+    
+    confirmRemoveYes.addEventListener('click', function() {
+        confirmRemoveBox.style.display = 'none';
+        try {
+            document.getElementById(currentRemove).remove();
+        } catch(err) {
+            console.log(err);
+        }
+    });
+    confirmRemoveNo.addEventListener('click', function() {
+        confirmRemoveBox.style.display = 'none';
+    });
+
+
+
 
 
     function getMotherSection(targetElement, classNameToFind) {
-        const sect = classNameToFind; // string to search for inside classname
+        const sect = classNameToFind;
         var parentSection = targetElement;
-        var x = 0;
 
-        while (!parentSection.className.includes(sect)) { // keeps looping while string is not found
-            parentSection = parentSection.parentElement;
-            x++;
-            if (x > 15) { // just in case i missed something and end up in an endless loop
-                break;
+        try {
+            while (!parentSection.className.includes(sect)) {
+                parentSection = parentSection.parentElement;
             }
+        } catch (err) {
+            console.log('ERROR: ' + err);
+            return targetElement;
         }
         return parentSection;
     }

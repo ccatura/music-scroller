@@ -11,70 +11,40 @@
 </head>
 <body>
 
-    <div class="wrapper">
-        <div class="header">
-            <h1 class="page-title">Create Song</h1>
+<div class="create-container">
+
+    <div class="song-info-mother-section">
+        <div class="heading">Create Song</div>
+        <div class="section-heading">Title</div>
+        <input class="song-info-input clicker" type="text" id="song-title">
+        <div class="section-heading">Artist</div>
+        <input class="song-info-input clicker" type="text" id="song-artist"> 
+    </div>
+
+    <div class="song-sections">
+        <div class="song-part-mother-section" id="12345678901234567">
+            <select name="" id="song-part-options" class="clicker">
+                <option value="">Verse</option>
+                <option value="">Chorus</option>
+                <option value="">Bridge</option>
+            </select>
+            <textarea name="" cols="30" rows="10" class="song-info-textarea clicker" placeholder="Input lyrics here" id="verse-lyrics"></textarea>
+            <div class="add-remove-buttons">
+                <button class="add-above clicker actionbutton">Add Section Above</button>
+                <button class="add-below clicker actionbutton">Add Section Below</button>
+                <button class="remove clicker actionbutton">Remove This Section</button>
+            </div>
         </div>
-        <form action="create-submit.php" method="post">
-            <div class="section">
-                <div class="part-header">
-                    <h2>Title</h2>
-                </div>
-                <input name="song_title" type="text" class="song-text">
-            </div>
-
-
-            <div class="section">
-                <div class="part-header">
-                    <h2>Artist</h2>
-                </div> 
-                <input name="artist" type="text" class="song-text">
-            </div>
-
-
-            <!-- Song Part Section -->
-            <div class="duplicatable section">
-                <div class="part-header">
-                    <input type="text" class="custom-field" placeholder="Custom">
-                    <select class="part-selection song-text">
-                        <option value="verse">Verse</option>
-                        <option value="chorus">Chorus</option>
-                        <option value="bridge">Bridge</option>
-                        <option value="lift">Lift</option>
-                        <option value="custom">Custom</option>
-                    </select>
-                    <div class="remove">
-                        <div class="text-add-remove">Remove</div>
-                        <div class="add-remove-part" title="Remove">-</div>
-                        <div class="remove-click"></div>
-                    </div>
-                </div>
-                <textarea name="song_lyrics" class="song-part song-text" cols="30" rows="10"></textarea>
-                <div class="part-footer">
-                    <div class="arrows move-up">&#8593;</div>
-                    <div class="arrows move-down">&#8595;</div>
-                    <div class="add">
-                        <div class="text-add-remove">Add</div>
-                        <div title="Add Part" class="add-remove-part">+</div>
-                        <div class="add-click"></div>
-                    </div>
-                </div>
-            </div>
-            <!-- Song Part Section End -->
-
-            
-
-            <div class="button-section">
-                <button name="submit" class="create-song-button">Create Song!</button>
-            </div>
-        </form>
-
-
-
-
     </div>
 
 
+</div>
+
+<div class="confirm-remove">
+    <p>Are you sure you want to remove this section?</p>
+    <button id="confirm-remove-yes">Remove It</button>
+    <button id="confirm-remove-no">Cancel Remove</button>
+</div>
 
 
     
