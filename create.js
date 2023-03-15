@@ -1,6 +1,6 @@
 var createContainer = document.querySelector('.create-container');
 var addBelow = document.querySelector('.add-below');
-var confirmRemoveBox = document.querySelector('.confirm-remove');
+var confirmRemoveBox = document.querySelector('.background-block');
 var confirmRemoveYes = document.querySelector('#confirm-remove-yes');
 var confirmRemoveNo  = document.querySelector('#confirm-remove-no');
 
@@ -21,7 +21,7 @@ createContainer.addEventListener('click', function() {
     if (thisSelection.className.includes('actionbutton')) {
         var targetParentSection = getMotherSection((event.target), "song-part-mother-section"); 
             if (thisSelection.className.includes('add-below') || thisSelection.className.includes('add-above')) {
-            const clone = targetParentSection.cloneNode(true);
+            var clone = targetParentSection.cloneNode(true);
             if(thisSelection.className.includes('add-below')) {
                 targetParentSection.after(clone);
             } else if (thisSelection.className.includes('add-above')) {
@@ -30,9 +30,16 @@ createContainer.addEventListener('click', function() {
             clone.id = Math.random().toString().slice(2,20);
             clone.querySelector('.song-info-textarea').value = '';
         } else if (thisSelection.className.includes('remove')) {
+            var previousColor = window.getComputedStyle(targetParentSection).getPropertyValue('background-color');
             confirmRemove(targetParentSection.id);
             var currentRemove = targetParentSection.id;
+        } else if (thisSelection.className.includes('move-up')) {
+            targetParentSection.parentNode.insertBefore(targetParentSection, targetParentSection.previousElementSibling);
+        } else if (thisSelection.className.includes('move-down')) {
+            targetParentSection.parentNode.insertBefore(targetParentSection.nextElementSibling, targetParentSection);
         }
+
+
     }
 
 
@@ -42,6 +49,7 @@ createContainer.addEventListener('click', function() {
     function confirmRemove(id) {
         confirmRemoveBox.style.display = 'flex';
         confirmRemoveBox.setAttribute("name", id);
+        document.getElementById(id).style.backgroundColor = 'red';
     }
     
     confirmRemoveYes.addEventListener('click', function() {
@@ -54,6 +62,11 @@ createContainer.addEventListener('click', function() {
     });
     confirmRemoveNo.addEventListener('click', function() {
         confirmRemoveBox.style.display = 'none';
+        try {
+            document.getElementById(currentRemove).style.backgroundColor = previousColor;
+        } catch(err) {
+            console.log(err);
+        }
     });
 
 

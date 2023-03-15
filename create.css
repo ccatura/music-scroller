@@ -10,6 +10,14 @@
     padding: 1em;
     display: flex;
     flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+.song-info-mother-section input,
+.song-part-mother-section input,
+.song-part-mother-section textarea {
+    width: 100%;
 }
 
 .song-info-mother-section {
@@ -20,8 +28,18 @@
     margin-bottom: 1em;
 }
 
-.confirm-remove {
+.background-block {
     display: none;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+
+.confirm-remove {
+    display: flex;
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
