@@ -2,11 +2,32 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     margin-top: 2em;
     margin-bottom: 2em;;
+}
+
+.container {
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+button, select {
+    border: 2px solid black;
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    padding: 5px;
+    margin: 5px;
+    width: 180px;
+    font-size: 16px;
+}
+
+button:active {
+    background-color: black;
+    color: white;
 }
 
 .song-info-mother-section,
@@ -22,12 +43,17 @@ body {
     border-radius: 10px;
     border: 2px solid black;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
+    text-align: center;
 }
 
 .song-info-mother-section input,
 .song-part-mother-section input,
 .song-part-mother-section textarea {
     width: 100%;
+}
+
+textarea, select {
+    margin-bottom: 1em;
 }
 
 .song-info-mother-section {
@@ -53,7 +79,7 @@ body {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    width: 400px;
+    width: 300px;
     height: 250px;
     background-color: rgb(174, 188, 235);
     position: fixed;
@@ -62,4 +88,10 @@ body {
     transform: translateX(-50%);
     box-shadow: 0 0 20px black;
     border-radius: 15px;
+    padding: 2em;
+    text-align: center;
+}
+
+.confirm-remove p {
+    margin-bottom: 1em;
 }

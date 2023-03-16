@@ -11,45 +11,71 @@
 </head>
 <body>
 
-<div class="create-container">
+<div class="container">
 
     <div class="song-info-mother-section">
+        <button class="preview actionbuttone" id="preview">Preview</button>
         <div class="heading">Create Song</div>
         <div class="section-heading">Title</div>
-        <input class="song-info-input " type="text" id="song-title">
+        <input class="song-info-input lyrics" type="text" id="song-title" part="Title" value="Mary Had a Little Lamb">
         <div class="section-heading">Artist</div>
-        <input class="song-info-input " type="text" id="song-artist"> 
+        <input class="song-info-input lyrics" type="text" id="song-artist" part="Artist" value="Charlie Katt"> 
     </div>
 
     <div class="song-sections">
+
         <div class="song-part-mother-section" id="12345678901234567">
-            <select name="" id="song-part-options" class="">
-                <option value="">Verse</option>
+            <select name="" class="song-part-options actionbutton name-the-part">
+                <option value="" selected>Verse</option>
                 <option value="">Pre-Chorus</option>
                 <option value="">Chorus</option>
                 <option value="">Bridge</option>
                 <option value="">Custom</option>
             </select>
-            <textarea name="" cols="30" rows="10" class="song-info-textarea " placeholder="Input lyrics here" id="verse-lyrics"></textarea>
+            <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
+Mary Had a Little Lamb
+Its fleece was white as snow
+Everywhere that mary went
+The lamb was sure to go</textarea>
             <div class="add-remove-buttons">
                 <button class="add-above actionbutton">Add Section Above</button>
                 <button class="add-below actionbutton">Add Section Below</button>
-                <button class="remove actionbutton">Remove This Section</button>
-                &nbsp;&nbsp;&nbsp;
+                <button class="remove actionbutton" id="remove">Remove This Section</button>
                 <button class="move-up actionbutton">Move Section Up</button>
                 <button class="move-down actionbutton">Move Section Down</button>
             </div>
         </div>
+
+        <div class="song-part-mother-section" id="234567890987654678">
+            <select name="" class="song-part-options actionbutton name-the-part">
+                <option value="">Verse</option>
+                <option value="">Pre-Chorus</option>
+                <option value="" selected>Chorus</option>
+                <option value="">Bridge</option>
+                <option value="">Custom</option>
+            </select>
+            <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Chorus">
+Mary, Mary
+You dumb, stupid bitch!
+Mary, Mary
+Come and scratch my itch!</textarea>
+            <div class="add-remove-buttons">
+                <button class="add-above actionbutton">Add Section Above</button>
+                <button class="add-below actionbutton">Add Section Below</button>
+                <button class="remove actionbutton" id="remove">Remove This Section</button>
+                <button class="move-up actionbutton">Move Section Up</button>
+                <button class="move-down actionbutton">Move Section Down</button>
+            </div>
+        </div>
+        
     </div>
-
-
 
 
     <div class="background-block">
         <div class="confirm-remove">
             <p>Are you sure you want to remove this section?</p>
-            <button class="confirm-remove-yes confirm-button" id="confirm-remove-yes">Remove It</button>
-            <button class="confirm-remove-no confirm-button" id="confirm-remove-no">Cancel Remove</button>
+            <button class="confirm-remove-yes confirm-button" id="confirm-remove-yes">Remove</button>
+            <button class="confirm-remove-no confirm-button" id="confirm-remove-no">Do Not Remove</button>
         </div>
     </div>
 
