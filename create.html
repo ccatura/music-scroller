@@ -16,42 +16,43 @@
     <div class="song-info-mother-section">
         <div class="heading">Create Song</div>
         <div class="section-heading">Title</div>
-        <input class="song-info-input clicker" type="text" id="song-title">
+        <input class="song-info-input " type="text" id="song-title">
         <div class="section-heading">Artist</div>
-        <input class="song-info-input clicker" type="text" id="song-artist"> 
+        <input class="song-info-input " type="text" id="song-artist"> 
     </div>
 
     <div class="song-sections">
         <div class="song-part-mother-section" id="12345678901234567">
-            <select name="" id="song-part-options" class="clicker">
+            <select name="" id="song-part-options" class="">
                 <option value="">Verse</option>
                 <option value="">Pre-Chorus</option>
-                <option value="">Chorus/Refrain</option>
-                <option value="">Post-Chorus</option>
+                <option value="">Chorus</option>
                 <option value="">Bridge</option>
                 <option value="">Custom</option>
             </select>
-            <textarea name="" cols="30" rows="10" class="song-info-textarea clicker" placeholder="Input lyrics here" id="verse-lyrics"></textarea>
+            <textarea name="" cols="30" rows="10" class="song-info-textarea " placeholder="Input lyrics here" id="verse-lyrics"></textarea>
             <div class="add-remove-buttons">
-                <button class="add-above clicker actionbutton">Add Section Above</button>
-                <button class="add-below clicker actionbutton">Add Section Below</button>
-                <button class="remove clicker actionbutton">Remove This Section</button>
+                <button class="add-above actionbutton">Add Section Above</button>
+                <button class="add-below actionbutton">Add Section Below</button>
+                <button class="remove actionbutton">Remove This Section</button>
                 &nbsp;&nbsp;&nbsp;
-                <button class="move-up clicker actionbutton">Move Section Up</button>
-                <button class="move-down clicker actionbutton">Move Section Down</button>
+                <button class="move-up actionbutton">Move Section Up</button>
+                <button class="move-down actionbutton">Move Section Down</button>
             </div>
         </div>
     </div>
 
 
-</div>
 
-<div class="background-block">
-    <div class="confirm-remove">
-        <p>Are you sure you want to remove this section?</p>
-        <button id="confirm-remove-yes">Remove It</button>
-        <button id="confirm-remove-no">Cancel Remove</button>
+
+    <div class="background-block">
+        <div class="confirm-remove">
+            <p>Are you sure you want to remove this section?</p>
+            <button class="confirm-remove-yes confirm-button" id="confirm-remove-yes">Remove It</button>
+            <button class="confirm-remove-no confirm-button" id="confirm-remove-no">Cancel Remove</button>
+        </div>
     </div>
+
 </div>
 
     
