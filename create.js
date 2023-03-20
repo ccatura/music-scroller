@@ -4,6 +4,7 @@ var confirmRemoveBox    = document.querySelector('.background-block');
 var removeButton        = document.querySelector('#remove');
 var songSections        = document.querySelector('.song-sections');
 var preview             = document.querySelector('#preview');
+var confirmRemoveYes    = document.querySelector('#confirm-remove-yes');
 var currentRemove;
 var previousColor;
 
@@ -23,9 +24,14 @@ container.addEventListener('click', function() {
         var targetParentSection = getMotherSection(thisSelection, "song-part-mother-section"); 
             if (thisSelection.className.includes('add-below') || thisSelection.className.includes('add-above')) {
                 var clone = targetParentSection.cloneNode(true);
+                
                 if(thisSelection.className.includes('add-below')) {
                     targetParentSection.after(clone);
                 } else if (thisSelection.className.includes('add-above')) {
+                    targetParentSection.before(clone);
+                } else if (thisSelection.className.includes('add-comment-below')) {
+                    targetParentSection.after(clone);
+                } else if (thisSelection.className.includes('add-comment-above')) {
                     targetParentSection.before(clone);
                 }
             clone.id = Math.random().toString().slice(2,20);
@@ -104,6 +110,7 @@ container.addEventListener('click', function() {
         confirmRemoveBox.style.display = 'flex';
         confirmRemoveBox.setAttribute("name", id);
         document.getElementById(id).style.backgroundColor = 'orange';
+        confirmRemoveYes.focus();
     }
     
     function getMotherSection(targetElement, classNameToFind) {
@@ -124,7 +131,12 @@ container.addEventListener('click', function() {
 function previewSong() {
     var lyrics = document.querySelectorAll('.lyrics');
     for (var i = 0; i < lyrics.length; i++) {
-        console.log(lyrics[i].getAttribute('part') + ':\n' + lyrics[i].value + '\n\n');
+        if (lyrics[i].getAttribute('part') != 'Comment') {
+            console.log(lyrics[i].getAttribute('part') + ':');
+            console.log(lyrics[i].value + '\n\n');
+        } else {
+            console.log('(' + lyrics[i].value + ')\n\n');
+        }
     }
     console.log('\n');
 }
