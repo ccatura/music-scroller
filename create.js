@@ -12,6 +12,7 @@ var previousColor;
 
 
 
+
 preview.addEventListener('click', function() {
     previewSong();
 });

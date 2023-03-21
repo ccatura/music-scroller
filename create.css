@@ -15,6 +15,22 @@ body {
     flex-flow: column nowrap;
 }
 
+.button-set {
+    display: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+    border: 2px solid black;
+}
+
+.button-menu:focus ~ .button-set {
+    display: block;
+}
+
+.button-set:hover {
+    display: block;
+}
+
 button, select {
     border: 2px solid black;
     border-radius: 8px;
@@ -28,6 +44,10 @@ button, select {
 button:active {
     background-color: black;
     color: white;
+}
+
+button:focus {
+    outline: 2px solid black;
 }
 
 .song-info-mother-section,
