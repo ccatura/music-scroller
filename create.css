@@ -14,27 +14,27 @@
     --color-warning:    rgb(255, 0, 0);
 }
 
-.xpart-verse {
+.part-verse {
     background-color: var(--color-verse);
 }
 
-.xpart-chorus {
+.part-chorus {
     background-color: var(--color-chorus);
 }
 
-.xpart-pre-chorus {
+.part-pre-chorus {
     background-color: var(--color-pre-chorus);
 }
 
-.xpart-bridge {
+.part-bridge {
     background-color: var(--color-bridge);
 }
 
-.xpart-custom {
+.part-custom {
     background-color: var(--color-custom);
 }
 
-.xpart-warning {
+.part-warning {
     background-color: var(--color-warning) !important;
 }
 

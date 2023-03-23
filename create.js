@@ -4,10 +4,8 @@ var confirmRemoveBox    = document.querySelector('.background-block');
 var removeButton        = document.querySelector('#remove');
 var songSections        = document.querySelector('.song-sections');
 var preview             = document.querySelector('#preview');
-var confirmRemoveYes    = document.querySelector('#confirm-remove-yes');
-var currentRemove;
-var targetParentSection;
-// var previousColor;
+var confirmYes          = document.querySelector('#confirm-yes');
+var currentRemoveID;
 
 // insert comment markers or something like that, and things to incluse "repeat chorus" etc
 
@@ -18,52 +16,47 @@ preview.addEventListener('click', function() {
     previewSong();
 });
 
+
+
+
 container.addEventListener('click', function() {
-    var thisSelection = event.target;
-    console.log('Get mother section below');
-    targetParentSection = getMotherSection(thisSelection, "song-part-mother-section"); 
+    var thisSelection           = event.target;
+    var targetParentSection     = getMotherSection(thisSelection, "song-part-mother-section");
 
-    // Adds section above or below current one - or removes section
-    if (thisSelection.className.includes('actionbutton')) {
-            if (thisSelection.className.includes('add-below') || thisSelection.className.includes('add-above')) {
-                var clone = targetParentSection.cloneNode(true);
-                
-                if(thisSelection.className.includes('add-below')) {
-                    targetParentSection.after(clone);
-                } else if (thisSelection.className.includes('add-above')) {
-                    targetParentSection.before(clone);
-                } else if (thisSelection.className.includes('add-comment-below')) {
-                    targetParentSection.after(clone);
-                } else if (thisSelection.className.includes('add-comment-above')) {
-                    targetParentSection.before(clone);
-                }
-            clone.id = Math.random().toString().slice(2,20);
-            clone.querySelector('.song-info-textarea').value = '';
-        } else if (thisSelection.className.includes('remove')) {
-            if (songSections.childElementCount > 1) {
-                previousColor = window.getComputedStyle(targetParentSection).getPropertyValue('background-color');
-                confirmRemove(targetParentSection.id);
-                currentRemove = targetParentSection.id;
-            }
-        } else if (thisSelection.className.includes('move-up')) {
-            targetParentSection.parentNode.insertBefore(targetParentSection, targetParentSection.previousElementSibling);
-        } else if (thisSelection.className.includes('move-down')) {
-            targetParentSection.parentNode.insertBefore(targetParentSection.nextElementSibling, targetParentSection);
-        } else if (thisSelection.className.includes('name-the-part')) {
-            nameThePart(getMotherSection(thisSelection, "song-part-mother-section"), thisSelection);
+    if (thisSelection.className.includes('remove')) {
+        if (songSections.childElementCount > 1) {
+            confirmRemove(targetParentSection.id);
+            currentRemoveID = targetParentSection.id;
         }
-    } else if (thisSelection.className.includes('confirm-button')) {
-        // console.log(targetParentSection);
+    }
+    else if (thisSelection.className.includes('add-above')) {
+        targetParentSection.before(makeClone(targetParentSection));
+    }
+    else if (thisSelection.className.includes('add-below')) {
+        targetParentSection.after(makeClone(targetParentSection));
+    }
+    else if (thisSelection.className.includes('add-comment-below')) {
+        targetParentSection.after(clone); // ************************************ NOT RIGHT YET
+    }
+    else if (thisSelection.className.includes('add-comment-above')) {
+        targetParentSection.before(clone); // ************************************ NOT RIGHT YET
+    }
+    else if (thisSelection.className.includes('move-up')) {
+        targetParentSection.parentNode.insertBefore(targetParentSection, targetParentSection.previousElementSibling);
+    }
+    else if (thisSelection.className.includes('move-down')) {
+        targetParentSection.parentNode.insertBefore(targetParentSection.nextElementSibling, targetParentSection);
+    }
+    else if (thisSelection.className.includes('part-selection')) {
+        nameThePart(getMotherSection(thisSelection, "song-part-mother-section"), thisSelection);
+    }
+    else if (thisSelection.className.includes('confirm-yes') || thisSelection.className.includes('confirm-no')) {
+        confirmRemoveBox.style.display = 'none';
+        var sectionToRemove = document.getElementById(currentRemoveID);
+        sectionToRemove.classList.remove('part-warning');
 
-        currentRemove = confirmRemoveBox.getAttribute('name');
-        if (thisSelection.className.includes('confirm-remove-yes')) {
-            confirmRemoveBox.style.display = 'none';
-            // document.getElementById(currentRemove).remove();
-            targetParentSection.classList.remove('xpart-warning');
-        } else if (thisSelection.className.includes('confirm-remove-no')) {
-            confirmRemoveBox.style.display = 'none';
-            // document.getElementById(currentRemove).style.backgroundColor = previousColor;
-            targetParentSection.classList.remove('xpart-warning');
+        if (thisSelection.className.includes('confirm-yes')) {
+            sectionToRemove.remove();
         }
     }
 
@@ -78,7 +71,16 @@ container.addEventListener('click', function() {
 
 
 
-    // this isnt right yet
+
+
+
+
+
+
+
+
+
+
     function nameThePart(thisSelectionMother, thisSelectionX) {
         //get the part name: verse, chorus, etc
         //change it to be: verse 1 or verse 2, chorus 1, chorus 2, etc
@@ -90,6 +92,8 @@ container.addEventListener('click', function() {
         var songInfoTextAreaToChange    = thisSelectionMother.id;
         var songInfoTextAreas           = thisSelectionMother.childNodes;
 
+        // future task: all xpart- classes need to be removed from the select box before adding the new class
+        // make it a function similar to setDivColor()
         for (let i = 0; i < songInfoTextAreas.length; i++) {
             if(songInfoTextAreas[i].nodeName == 'TEXTAREA' && songInfoTextAreas[i].className.includes('part-lyrics')) {
                 songInfoTextAreas[i].setAttribute("part", part);
@@ -104,11 +108,12 @@ container.addEventListener('click', function() {
                 } else if (part == 'Custom') {
                     thisSelectionX.classList.add('xpart-custom');
                 }
-                    }
+            }
         }
 
 
         setDivColor(thisSelectionMother, part);
+        setDivColor(thisSelectionX, part);
 
         for (var j = 0; j < partsCount.length; j++) {
             var x = partsCount[j].getAttribute('part');
@@ -120,32 +125,50 @@ container.addEventListener('click', function() {
 
 
 
+
+
+
+    function makeClone(toClone) {
+        var clone = toClone.cloneNode(true);
+        clone.id = Math.random().toString().slice(2,20);
+        clone.querySelector('.song-info-textarea').value = '';
+        return clone;
+    }
+
+
     function setDivColor(div, part) {
-        div.classList.remove('xpart-verse');
-        div.classList.remove('xpart-pre-chorus');
-        div.classList.remove('xpart-chorus');
-        div.classList.remove('xpart-bridge');
-        div.classList.remove('xpart-custom');
+        div.classList.remove('part-verse');
+        div.classList.remove('part-pre-chorus');
+        div.classList.remove('part-chorus');
+        div.classList.remove('part-bridge');
+        div.classList.remove('part-custom');
         if (part == 'Chorus') {
-            div.classList.add('xpart-chorus');
+            div.classList.add('part-chorus');
         } else if (part == 'Verse') {
-            div.classList.add('xpart-verse');
+            div.classList.add('part-verse');
         } else if (part == 'Bridge') {
-            div.classList.add('xpart-bridge');
+            div.classList.add('part-bridge');
         } else if (part == 'Pre-Chorus') {
-            div.classList.add('xpart-pre-chorus');
+            div.classList.add('part-pre-chorus');
         } else if (part == 'Custom') {
-            div.classList.add('xpart-custom');
+            div.classList.add('part-custom');
         }
     }
 
+
+
+
+
+
+
+
     function confirmRemove(id) {
         confirmRemoveBox.style.display = 'flex';
-        confirmRemoveBox.setAttribute("name", id);
-        document.getElementById(id).classList.add('xpart-warning');
-        confirmRemoveYes.focus();
+        document.getElementById(id).classList.add('part-warning');
+        confirmYes.focus();
     }
-    
+
+
     function getMotherSection(targetElement, classNameToFind) {
         const sect = classNameToFind;
         var parentSection = targetElement.parentElement;
@@ -156,12 +179,13 @@ container.addEventListener('click', function() {
         } catch(err) {
 
         }
-
-        console.log('parentSection: ' + parentSection);
-
         return parentSection;
     }
 });
+
+
+
+
 
 
 function previewSong() {
