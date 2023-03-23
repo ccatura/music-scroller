@@ -5,6 +5,39 @@
     font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+    --color-verse:      rgb(132, 180, 152);
+    --color-chorus:     rgb(166, 166, 209);
+    --color-pre-chorus: rgb(149, 187, 197);
+    --color-bridge:     rgb(183, 137, 197);
+    --color-custom:     rgb(218, 230, 152);
+    --color-warning:    rgb(255, 0, 0);
+}
+
+.xpart-verse {
+    background-color: var(--color-verse);
+}
+
+.xpart-chorus {
+    background-color: var(--color-chorus);
+}
+
+.xpart-pre-chorus {
+    background-color: var(--color-pre-chorus);
+}
+
+.xpart-bridge {
+    background-color: var(--color-bridge);
+}
+
+.xpart-custom {
+    background-color: var(--color-custom);
+}
+
+.xpart-warning {
+    background-color: var(--color-warning) !important;
+}
+
 body {
     margin-top: 2em;
     margin-bottom: 2em;;
@@ -13,6 +46,14 @@ body {
 .container {
     display: flex;
     flex-flow: column nowrap;
+}
+
+.song-part-head-section {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    margin-bottom: 1em;
 }
 
 .button-set {
@@ -41,6 +82,30 @@ button, select {
     font-size: 16px;
 }
 
+select {
+    border: none;
+    border-radius: none;
+    background-color: #ddd;
+    font-size: 24px;
+    font-weight: bold;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select:focus {
+    background-color: white;
+}
+
+select:hover {
+    outline: 2px solid black;
+}
+
+select:focus,
+select:hover {
+    -webkit-appearance: button;
+    -moz-appearance: button;   
+}
+
 button:active {
     background-color: black;
     color: white;
@@ -52,7 +117,7 @@ button:focus {
 
 .song-info-mother-section,
 .song-part-mother-section {
-    background: #ddd;
+    /* background: #ddd; */
     padding: 1em;
     display: flex;
     flex-flow: column nowrap;
@@ -72,8 +137,9 @@ button:focus {
     width: 100%;
 }
 
-textarea, select {
+textarea {
     margin-bottom: 1em;
+    
 }
 
 .song-info-mother-section {

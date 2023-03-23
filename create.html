@@ -14,7 +14,7 @@
 <div class="container">
 
     <div class="song-info-mother-section">
-        <button class="preview actionbuttone" id="preview">Preview</button>
+        <button class="preview" id="preview">Preview</button>
         <div class="heading">Create Song</div>
         <div class="section-heading">Title</div>
         <input class="song-info-input lyrics" type="text" id="song-title" part="Title" value="Mary Had a Little Lamb">
@@ -25,13 +25,16 @@
     <div class="song-sections">
 
         <div class="song-part-mother-section" id="12345678901234567">
-            <select name="" class="song-part-options actionbutton name-the-part">
-                <option value="" selected>Verse</option>
-                <option value="">Pre-Chorus</option>
-                <option value="">Chorus</option>
-                <option value="">Bridge</option>
-                <option value="">Custom</option>
-            </select>
+            <div class="song-part-head-section">
+                <select name="" class="song-part-options actionbutton name-the-part">
+                    <option value="" selected>Verse</option>
+                    <option value="">Pre-Chorus</option>
+                    <option value="">Chorus</option>
+                    <option value="">Bridge</option>
+                    <option value="">Custom</option>
+                </select>
+                <button class="remove actionbutton" id="remove" style="background-color: pink;">Remove This Section</button>
+            </div>
             <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
 Mary Had a Little Lamb
 Its fleece was white as snow
@@ -41,7 +44,6 @@ The lamb was sure to go</textarea>
             <div class="button-set">
                 <button class="add-above actionbutton">Add Section Above</button>
                 <button class="add-below actionbutton">Add Section Below</button>
-                <button class="remove actionbutton" id="remove" style="background-color: pink;">Remove This Section</button>
                 <button class="add-comment-above actionbutton">Add Comment Above</button>
                 <button class="add-comment-below actionbutton">Add Comment Below</button>
                 <button class="move-up actionbutton">Move Section Up</button>
