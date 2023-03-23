@@ -1,10 +1,13 @@
-var container           = document.querySelector('.container');
-var addBelow            = document.querySelector('.add-below');
-var confirmRemoveBox    = document.querySelector('.background-block');
-var removeButton        = document.querySelector('#remove');
-var songSections        = document.querySelector('.song-sections');
-var preview             = document.querySelector('#preview');
-var confirmYes          = document.querySelector('#confirm-yes');
+var container               = document.querySelector('.container');
+var addBelow                = document.querySelector('.add-below');
+var confirmRemoveBox        = document.querySelector('.background-block');
+var removeButton            = document.querySelector('#remove');
+var songSections            = document.querySelector('.song-sections');
+var preview                 = document.querySelector('#preview');
+var confirmYes              = document.querySelector('#confirm-yes');
+var previewSongContainer    = document.querySelector('#preview-song-container');
+var previewSongBox          = document.querySelector('#preview-song');
+var previewSongClose            = document.querySelector('#preview-song-close');
 var currentRemoveID;
 
 // insert comment markers or something like that, and things to incluse "repeat chorus" etc
@@ -16,7 +19,9 @@ preview.addEventListener('click', function() {
     previewSong();
 });
 
-
+previewSongClose.addEventListener('click', function() {
+    previewSongContainer.style.display = 'none';
+});
 
 
 container.addEventListener('click', function() {
@@ -189,14 +194,16 @@ container.addEventListener('click', function() {
 
 
 function previewSong() {
+    previewSongContainer.style.display = 'block';
     var lyrics = document.querySelectorAll('.lyrics');
+    previewSongBox.innerHTML = '<br><br>';
     for (var i = 0; i < lyrics.length; i++) {
         if (lyrics[i].getAttribute('part') != 'Comment') {
-            console.log(lyrics[i].getAttribute('part') + ':');
-            console.log(lyrics[i].value + '\n\n');
+            previewSongBox.innerHTML += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>');
+            previewSongBox.innerHTML += (lyrics[i].value + '<br><br>');
         } else {
-            console.log('(' + lyrics[i].value + ')\n\n');
+            previewSongBox.innerHTML += '<em>' + ('(' + lyrics[i].value + ')</em><br><br>');
         }
     }
-    console.log('\n');
+    previewSongBox.innerHTML += ('<br><br>');
 }

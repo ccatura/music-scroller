@@ -181,3 +181,21 @@ textarea {
 .confirm-remove p {
     margin-bottom: 1em;
 }
+
+#preview-song-container {
+    display: none;
+    position: fixed;
+    top: 100px;
+    bottom: 100px;
+    left: 100px;
+    right: 100px;
+    background-color: #ccc;
+    box-shadow: 10px 10px 20px black;
+    padding: 2em;
+    font-size: 24px;
+    overflow-y: auto;
+}
+
+#preview-song-close {
+    cursor: pointer;
+}
