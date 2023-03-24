@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="./create.css">
     <script src="./create.js" defer></script>
     <link rel="icon" type="image/x-icon" href="./images/misc/favicon.ico">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Neucha&display=swap" rel="stylesheet">
     <title>Charlie's Music Scroller for Musicians</title>
 </head>
 <body>
@@ -24,7 +27,7 @@
 
     <div class="song-sections">
 
-        <div class="song-part-mother-section" id="12345678901234567">
+        <div class="song-part-mother-section" id="12345678901234567" label="part-song">
             <div class="song-part-head-section">
                 <select name="" class="song-part-options part-selection">
                     <option value="" selected>Verse</option>
@@ -36,6 +39,10 @@
                 <button class="remove" id="remove" style="background-color: pink;">Remove This Section</button>
             </div>
             <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
+Mary Had a Little Lamb
+Its fleece was white as snow
+Everywhere that mary went
+The lamb was sure to go
 Mary Had a Little Lamb
 Its fleece was white as snow
 Everywhere that mary went
@@ -51,7 +58,7 @@ The lamb was sure to go</textarea>
             </div>
         </div>
 
-        <div class="song-part-mother-section" id="0234567890987654678">
+        <div class="song-part-mother-section" id="0234567890987654678" label="part-comment">
             <input class="song-info-input lyrics" type="text" part="Comment" value="Repeat Verse">
             <button class="button-menu">Actions</button>
             <div class="button-set">
@@ -63,15 +70,22 @@ The lamb was sure to go</textarea>
             </div>
         </div>
 
-        <div class="song-part-mother-section" id="234567890987654678">
-            <select name="" class="song-part-options part-selection">
-                <option value="">Verse</option>
-                <option value="">Pre-Chorus</option>
-                <option value="" selected>Chorus</option>
-                <option value="">Bridge</option>
-                <option value="">Custom</option>
-            </select>
-            <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Chorus">
+        <div class="song-part-mother-section" id="123454678901234567" label="part-song">
+            <div class="song-part-head-section">
+                <select name="" class="song-part-options part-selection">
+                    <option value="" selected>Verse</option>
+                    <option value="">Pre-Chorus</option>
+                    <option value="">Chorus</option>
+                    <option value="">Bridge</option>
+                    <option value="">Custom</option>
+                </select>
+                <button class="remove" id="remove" style="background-color: pink;">Remove This Section</button>
+            </div>
+            <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
+Mary, Mary
+You dumb, stupid bitch!
+Mary, Mary
+Come and scratch my itch!
 Mary, Mary
 You dumb, stupid bitch!
 Mary, Mary
@@ -80,7 +94,8 @@ Come and scratch my itch!</textarea>
             <div class="button-set">
                 <button class="add-above">Add Section Above</button>
                 <button class="add-below">Add Section Below</button>
-                <button class="remove" id="remove">Remove This Section</button>
+                <button class="add-comment-above">Add Comment Above</button>
+                <button class="add-comment-below">Add Comment Below</button>
                 <button class="move-up">Move Section Up</button>
                 <button class="move-down">Move Section Down</button>
             </div>
@@ -89,7 +104,7 @@ Come and scratch my itch!</textarea>
     </div>
 
 
-    <div class="background-block">
+    <div class="confirm-remove-background-block">
         <div class="confirm-remove">
             <p>Are you sure you want to remove this section?</p>
             <button class="confirm-yes confirm-button" id="confirm-yes">Remove</button>
@@ -97,9 +112,11 @@ Come and scratch my itch!</textarea>
         </div>
     </div>
 
-    <div id="preview-song-container">
-        <div class="preview-song-header">Song Preview - <span id='preview-song-close'>X</span></div>
-        <div id="preview-song"></div>
+    <div class="preview-song-background-block">
+        <div id="preview-song-container">
+            <div class="preview-song-header">Song Preview - <span id='preview-song-close'>X</span></div>
+            <div id="preview-song"></div>
+        </div>
     </div>
 
 </div>

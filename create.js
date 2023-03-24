@@ -1,16 +1,26 @@
 var container               = document.querySelector('.container');
 var addBelow                = document.querySelector('.add-below');
-var confirmRemoveBox        = document.querySelector('.background-block');
+var confirmRemoveBox        = document.querySelector('.confirm-remove-background-block');
+var previewBackgroundBox    = document.querySelector('.preview-song-background-block');
 var removeButton            = document.querySelector('#remove');
 var songSections            = document.querySelector('.song-sections');
 var preview                 = document.querySelector('#preview');
 var confirmYes              = document.querySelector('#confirm-yes');
 var previewSongContainer    = document.querySelector('#preview-song-container');
 var previewSongBox          = document.querySelector('#preview-song');
-var previewSongClose            = document.querySelector('#preview-song-close');
+var previewSongClose        = document.querySelector('#preview-song-close');
 var currentRemoveID;
 
 // insert comment markers or something like that, and things to incluse "repeat chorus" etc
+
+
+
+
+for (var x=0; x < songSections.childElementCount; x++) {
+    if (songSections.children[x].getAttribute('label') != 'part-comment') {
+        setDivColor(songSections.children[x], 'Verse');
+    }
+}
 
 
 
@@ -20,10 +30,10 @@ preview.addEventListener('click', function() {
 });
 
 previewSongClose.addEventListener('click', function() {
-    previewSongContainer.style.display = 'none';
+    previewBackgroundBox.style.display = 'none';
 });
 
-
+// When container is clicked, this detects where it is clicked and performs the appropriate actions
 container.addEventListener('click', function() {
     var thisSelection           = event.target;
     var targetParentSection     = getMotherSection(thisSelection, "song-part-mother-section");
@@ -67,25 +77,12 @@ container.addEventListener('click', function() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    /*
+    /*
+    /* Local funtions
+    /*
+    /*
+    */
     function nameThePart(thisSelectionMother, thisSelectionX) {
         //get the part name: verse, chorus, etc
         //change it to be: verse 1 or verse 2, chorus 1, chorus 2, etc
@@ -141,24 +138,7 @@ container.addEventListener('click', function() {
     }
 
 
-    function setDivColor(div, part) {
-        div.classList.remove('part-verse');
-        div.classList.remove('part-pre-chorus');
-        div.classList.remove('part-chorus');
-        div.classList.remove('part-bridge');
-        div.classList.remove('part-custom');
-        if (part == 'Chorus') {
-            div.classList.add('part-chorus');
-        } else if (part == 'Verse') {
-            div.classList.add('part-verse');
-        } else if (part == 'Bridge') {
-            div.classList.add('part-bridge');
-        } else if (part == 'Pre-Chorus') {
-            div.classList.add('part-pre-chorus');
-        } else if (part == 'Custom') {
-            div.classList.add('part-custom');
-        }
-    }
+ 
 
 
 
@@ -190,17 +170,35 @@ container.addEventListener('click', function() {
 
 
 
-
+function setDivColor(div, part) {
+    div.classList.remove('part-verse');
+    div.classList.remove('part-pre-chorus');
+    div.classList.remove('part-chorus');
+    div.classList.remove('part-bridge');
+    div.classList.remove('part-custom');
+    if (part == 'Chorus') {
+        div.classList.add('part-chorus');
+    } else if (part == 'Verse') {
+        div.classList.add('part-verse');
+    } else if (part == 'Bridge') {
+        div.classList.add('part-bridge');
+    } else if (part == 'Pre-Chorus') {
+        div.classList.add('part-pre-chorus');
+    } else if (part == 'Custom') {
+        div.classList.add('part-custom');
+    }
+}
 
 
 function previewSong() {
-    previewSongContainer.style.display = 'block';
+    previewBackgroundBox.style.display = 'block';
     var lyrics = document.querySelectorAll('.lyrics');
     previewSongBox.innerHTML = '<br><br>';
     for (var i = 0; i < lyrics.length; i++) {
         if (lyrics[i].getAttribute('part') != 'Comment') {
+            var newLyrics = lyrics[i].value.replace(/\n/g, "<br>"); // Converts /n to <br>
             previewSongBox.innerHTML += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>');
-            previewSongBox.innerHTML += (lyrics[i].value + '<br><br>');
+            previewSongBox.innerHTML += (newLyrics + '<br><br>');
         } else {
             previewSongBox.innerHTML += '<em>' + ('(' + lyrics[i].value + ')</em><br><br>');
         }
