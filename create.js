@@ -63,7 +63,9 @@ container.addEventListener('click', function() {
         targetParentSection.parentNode.insertBefore(targetParentSection.nextElementSibling, targetParentSection);
     }
     else if (thisSelection.className.includes('part-selection')) {
-        nameThePart(getMotherSection(thisSelection, "song-part-mother-section"), thisSelection);
+        thisSelection.addEventListener('change', function() { // ******************** This might not be correct, but it seems to work
+            nameThePart(getMotherSection(thisSelection, "song-part-mother-section"), thisSelection);
+        });
     }
     else if (thisSelection.className.includes('confirm-yes') || thisSelection.className.includes('confirm-no')) {
         confirmRemoveBox.style.display = 'none';
