@@ -195,7 +195,7 @@ function setDivColor(div, part) {
 function previewSong() {
     previewBackgroundBox.style.display = 'block';
     var lyrics = document.querySelectorAll('.lyrics');
-    previewSongBox.innerHTML = '<br><br>';
+    previewSongBox.innerHTML = '';
     for (var i = 0; i < lyrics.length; i++) {
         if (lyrics[i].getAttribute('part') != 'Comment') {
             var newLyrics = lyrics[i].value.replace(/\n/g, "<br>"); // Converts /n to <br>

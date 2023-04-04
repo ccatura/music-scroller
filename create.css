@@ -139,9 +139,12 @@ button:focus {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-
     box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
     text-align: center;
+    margin-bottom: 2em;
+    position: sticky;
+    top: 0;
+    background-color: white;
 }
 
 .song-info-mother-section input,
@@ -155,15 +158,46 @@ textarea {
     
 }
 
-.song-info-mother-section {
-    margin-bottom: 2em;
-    position: sticky;
-    top: 0;
-    background-color: white;
+.song-info-label-and-input {
+    width: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 10px;
+    margin-top: .5em;
+}
+
+.section-heading {
+    width: 70px;
 }
 
 .song-part-mother-section {
     margin-bottom: 1em;
+}
+
+.remove {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 0;
+    line-height: 0;
+    border: 2px solid black;
+}
+
+.remove:hover {
+    background-color: white;
+    color: red;
+}
+
+.remove:active {
+    background-color: black;
+    color: white;
 }
 
 .confirm-remove-background-block {
@@ -223,14 +257,32 @@ textarea {
     right: 100px;
     background-color: #ccc;
     box-shadow: 10px 10px 20px black;
-    padding: 1em 1em 1em 5em;
+    /* padding: 1em 1em 1em 5em; */
     font-size: 24px;
     overflow-y: auto;
+}
+
+#preview-song {
+    padding: 0 1em 1em 1em;
 }
 
 #preview-song-close {
     cursor: pointer;
 }
+
+.preview-song-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 100%;
+    padding: 1em;
+}
+
+
+
+
 
 @media (max-width: 700px) {
     #preview-song-container {
