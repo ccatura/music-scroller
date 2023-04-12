@@ -14,37 +14,39 @@
 </head>
 <body>
 
-<div class="container">
 
-    <div class="song-info-mother-section">
-        <div class="heading-buttons">
-            <button class="preview" id="preview">Preview</button>
-            <button class="save" id="save">Save</button>
-        </div>
-        <div class="song-info-label-and-input">
-            <div class="section-heading">Title</div>
-            <input class="song-info-input lyrics" type="text" id="song-title" part="Title" value="Better When It's Gone" placeholder="Title">
-        </div>
-        <div class="song-info-label-and-input">
-            <div class="section-heading">Artist</div>
-            <input class="song-info-input lyrics" type="text" id="song-artist" part="Artist" value="Charlie Katt" placeholder="Artist"> 
-        </div>
-    </div>
+<form action="create-submit.php" method="post">
+    <div class="container">
 
-    <div class="song-sections">
-
-        <div class="song-part-mother-section" id="123456789301234567" label="part-song">
-            <div class="song-part-head-section">
-                <select name="" class="song-part-options part-selection">
-                    <option value="" selected>Verse</option>
-                    <option value="">Pre-Chorus</option>
-                    <option value="">Chorus</option>
-                    <option value="">Bridge</option>
-                    <option value="">Custom</option>
-                </select>
-                <div class="remove" id="remove" name="Remove This Section" title="Remove This Section">&#10006;</div>
+        <div class="song-info-mother-section">
+            <div class="heading-buttons">
+                <button class="preview" id="preview">Preview</button>
+                <button class="save" id="save" name="submit">Save</button>
             </div>
-            <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
+            <div class="song-info-label-and-input">
+                <div class="section-heading">Title</div>
+                <input class="song-info-input lyrics" type="text" id="song-title" part="Title" value="Better When It's Gone" placeholder="Title">
+            </div>
+            <div class="song-info-label-and-input">
+                <div class="section-heading">Artist</div>
+                <input class="song-info-input lyrics" type="text" id="song-artist" part="Artist" value="Charlie Katt" placeholder="Artist"> 
+            </div>
+        </div>
+
+        <div class="song-sections">
+
+            <div class="song-part-mother-section" id="123456789301234567" label="part-song">
+                <div class="song-part-head-section">
+                    <select name="" class="song-part-options part-selection">
+                        <option value="" selected>Verse</option>
+                        <option value="">Pre-Chorus</option>
+                        <option value="">Chorus</option>
+                        <option value="">Bridge</option>
+                        <option value="">Custom</option>
+                    </select>
+                    <div class="remove" id="remove" name="Remove This Section" title="Remove This Section">&#10006;</div>
+                </div>
+                <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
 (It) recently occurred to me
 (When I) go outside and feel the breeze
 There's an air of freedom when I close my eyes
@@ -53,58 +55,58 @@ For once my soul’s not nearly dead
 And my heart is telling me to improvise
 
 (But) when I’m home something in me dies</textarea>
-            <button class="button-menu">Actions</button>
-            <div class="button-set">
-                <button class="add-above"><strong>&#x2b;</strong> Add Above &#11165;</button>
-                <button class="add-below"><strong>&#x2b;</strong> Add Below &#11167;</button>
-                <button class="add-comment-above">Comment Above &#11165;</button>
-                <button class="add-comment-below">Comment Below &#11167;</button>
-                <button class="move-up">&#11165; Move Up &#11165;</button>
-                <button class="move-down">&#11167; Move Down &#11167;</button>
+                <button class="button-menu">Actions</button>
+                <div class="button-set">
+                    <button class="add-above"><strong>&#x2b;</strong> Add Above &#11165;</button>
+                    <button class="add-below"><strong>&#x2b;</strong> Add Below &#11167;</button>
+                    <button class="add-comment-above">Comment Above &#11165;</button>
+                    <button class="add-comment-below">Comment Below &#11167;</button>
+                    <button class="move-up">&#11165; Move Up &#11165;</button>
+                    <button class="move-down">&#11167; Move Down &#11167;</button>
+                </div>
             </div>
-        </div>
 
-        <div class="song-part-mother-section" id="123456578901234567" label="part-song">
-            <div class="song-part-head-section">
-                <select name="" class="song-part-options part-selection">
-                    <option value="" selected>Verse</option>
-                    <option value="">Pre-Chorus</option>
-                    <option value="">Chorus</option>
-                    <option value="">Bridge</option>
-                    <option value="">Custom</option>
-                </select>
-                <div class="remove" id="remove">&#10006;</div>
-            </div>
-            <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
+            <div class="song-part-mother-section" id="123456578901234567" label="part-song">
+                <div class="song-part-head-section">
+                    <select name="" class="song-part-options part-selection">
+                        <option value="" selected>Verse</option>
+                        <option value="">Pre-Chorus</option>
+                        <option value="">Chorus</option>
+                        <option value="">Bridge</option>
+                        <option value="">Custom</option>
+                    </select>
+                    <div class="remove" id="remove">&#10006;</div>
+                </div>
+                <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
 (I'm) tired of these burning eyes
 (And) telling carefully scripted lies
 (For) once I'd like to say what's on my mind
 (Or) take off runnin’ for a while
 (Cause I’m) sick of how you never smile
 (When) I come home, you don’t know how to be kind</textarea>
-            <button class="button-menu">Actions</button>
-            <div class="button-set">
-                <button class="add-above">Add Section Above</button>
-                <button class="add-below">Add Section Below</button>
-                <button class="add-comment-above">Add Comment Above</button>
-                <button class="add-comment-below">Add Comment Below</button>
-                <button class="move-up">Move Section Up</button>
-                <button class="move-down">Move Section Down</button>
+                <button class="button-menu">Actions</button>
+                <div class="button-set">
+                    <button class="add-above">Add Section Above</button>
+                    <button class="add-below">Add Section Below</button>
+                    <button class="add-comment-above">Add Comment Above</button>
+                    <button class="add-comment-below">Add Comment Below</button>
+                    <button class="move-up">Move Section Up</button>
+                    <button class="move-down">Move Section Down</button>
+                </div>
             </div>
-        </div>
 
-        <div class="song-part-mother-section" id="123456789017234567" label="part-song">
-            <div class="song-part-head-section">
-                <select name="" class="song-part-options part-selection">
-                    <option value="">Verse</option>
-                    <option value="">Pre-Chorus</option>
-                    <option value="" selected>Chorus</option>
-                    <option value="">Bridge</option>
-                    <option value="">Custom</option>
-                </select>
-                <div class="remove" id="remove">&#10006;</div>
-            </div>
-            <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Chorus">
+            <div class="song-part-mother-section" id="123456789017234567" label="part-song">
+                <div class="song-part-head-section">
+                    <select name="" class="song-part-options part-selection">
+                        <option value="">Verse</option>
+                        <option value="">Pre-Chorus</option>
+                        <option value="" selected>Chorus</option>
+                        <option value="">Bridge</option>
+                        <option value="">Custom</option>
+                    </select>
+                    <div class="remove" id="remove">&#10006;</div>
+                </div>
+                <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Chorus">
 (Can) we at least just talk it out?
 (And) let’s try not to scream and shout
 You can drive this time, we’ll catch the sunset
@@ -112,56 +114,56 @@ You can drive this time, we’ll catch the sunset
 (I’ve been) reasoning, I've been wondering why
 (We) don't get better though our love seems strong
 Maybe sometimes love is better when it’s gone</textarea>
-            <button class="button-menu">Actions</button>
-            <div class="button-set">
-                <button class="add-above">Add Section Above</button>
-                <button class="add-below">Add Section Below</button>
-                <button class="add-comment-above">Add Comment Above</button>
-                <button class="add-comment-below">Add Comment Below</button>
-                <button class="move-up">Move Section Up</button>
-                <button class="move-down">Move Section Down</button>
+                <button class="button-menu">Actions</button>
+                <div class="button-set">
+                    <button class="add-above">Add Section Above</button>
+                    <button class="add-below">Add Section Below</button>
+                    <button class="add-comment-above">Add Comment Above</button>
+                    <button class="add-comment-below">Add Comment Below</button>
+                    <button class="move-up">Move Section Up</button>
+                    <button class="move-down">Move Section Down</button>
+                </div>
+            </div>
+            <div class="song-part-mother-section" id="comment-template" label="part-comment" style="display: none;"> <!-- to create comment, copy this section, the 1) change ID  2) display=flex -->
+                <input class="song-info-input lyrics" type="text" part="Comment" value="Repeat Chorus">
+                <button class="button-menu">Actions</button>
+                <div class="button-set">
+                    <button class="add-above">Add Section Above</button>
+                    <button class="add-below">Add Section Below</button>
+                    <button class="remove" id="remove">Remove This Section</button>
+                    <button class="move-up">Move Section Up</button>
+                    <button class="move-down">Move Section Down</button>
+                </div>
+            </div>
+
+        </div>
+
+
+
+
+
+
+        <div class="confirm-remove-background-block">
+            <div class="confirm-remove">
+                <p>Are you sure you want to remove this section?</p>
+                <button class="confirm-yes confirm-button" id="confirm-yes">Remove</button>
+                <button class="confirm-no confirm-button" id="confirm-no">Do Not Remove</button>
             </div>
         </div>
-        <div class="song-part-mother-section" id="comment-template" label="part-comment" style="display: none;"> <!-- to create comment, copy this section, the 1) change ID  2) display=flex -->
-            <input class="song-info-input lyrics" type="text" part="Comment" value="Repeat Chorus">
-            <button class="button-menu">Actions</button>
-            <div class="button-set">
-                <button class="add-above">Add Section Above</button>
-                <button class="add-below">Add Section Below</button>
-                <button class="remove" id="remove">Remove This Section</button>
-                <button class="move-up">Move Section Up</button>
-                <button class="move-down">Move Section Down</button>
+
+        <div class="preview-song-background-block">
+            <div id="preview-song-container">
+                <div class="preview-song-header">Song Preview - <span id='preview-song-close'>X</span></div>
+                <div id="preview-song"></div>
             </div>
         </div>
 
+        <input type="hidden" name="song-artist">
+        <input type="hidden" name="song-title">
+        <input type="hidden" name="song-lyrics">
+
     </div>
-
-
-
-
-
-
-    <div class="confirm-remove-background-block">
-        <div class="confirm-remove">
-            <p>Are you sure you want to remove this section?</p>
-            <button class="confirm-yes confirm-button" id="confirm-yes">Remove</button>
-            <button class="confirm-no confirm-button" id="confirm-no">Do Not Remove</button>
-        </div>
-    </div>
-
-    <div class="preview-song-background-block">
-        <div id="preview-song-container">
-            <div class="preview-song-header">Song Preview - <span id='preview-song-close'>X</span></div>
-            <div id="preview-song"></div>
-        </div>
-    </div>
-
-    <input type="hidden" name="song-artist" value="nothing">
-    <input type="hidden" name="song-title" value="nothing">
-    <input type="hidden" name="song-lyrics" value="nothing">
-
-</div>
-
+</form>
     
 </body>
 </html>

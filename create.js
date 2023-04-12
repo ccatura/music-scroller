@@ -11,11 +11,9 @@ var previewSongBox          = document.querySelector('#preview-song');
 var previewSongClose        = document.querySelector('#preview-song-close');
 var songInfoMotherSection   = document.querySelector('.song-info-mother-section');
 
-var songArtist              = document.getElementById('song-artist').value;
-var songTitle               = document.getElementById('song-title').value;
-
-var submitSongArtist        = document.getElementsByName('song-artist')[0].value;
-var submitSongTitle         = document.getElementsByName('song-title')[0].value;
+var submitSongArtist        = document.getElementsByName('song-artist')[0];
+var submitSongTitle         = document.getElementsByName('song-title')[0];
+var submitSongLyrics        = document.getElementsByName('song-lyrics')[0];
 
 var currentRemoveID;
 
@@ -40,6 +38,7 @@ window.addEventListener("scroll", (event) => {
 });
 
 preview.addEventListener('click', function() {
+    event.preventDefault();
     previewSong();
 });
 
@@ -51,6 +50,10 @@ previewSongClose.addEventListener('click', function() {
 container.addEventListener('click', function() {
     var thisSelection           = event.target;
     var targetParentSection     = getMotherSection(thisSelection, "song-part-mother-section");
+    if (thisSelection.id != 'save') {
+        event.preventDefault();
+    }
+    console.log(thisSelection.id);
 
     if (thisSelection.className.includes('remove')) {
         if (songSections.childElementCount > 1) {
@@ -207,16 +210,26 @@ function setDivColor(div, part) {
 
 
 function previewSong() {
+    var songArtist              = document.getElementById('song-artist').value;
+    var songTitle               = document.getElementById('song-title').value;
+    submitSongArtist.value      = songArtist;
+    submitSongTitle.value       = songTitle;
+
     previewBackgroundBox.style.display = 'block';
     var lyrics = document.querySelectorAll('.lyrics');
     previewSongBox.innerHTML = '';
+    submitSongLyrics.value = '';
     for (var i = 0; i < lyrics.length; i++) {
         if (lyrics[i].getAttribute('part') != 'Comment') {
             var newLyrics = lyrics[i].value.replace(/\n/g, "<br>"); // Converts /n to <br>
-            previewSongBox.innerHTML += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>');
-            previewSongBox.innerHTML += (newLyrics + '<br><br>');
+            previewSongBox.innerHTML += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>') + (newLyrics + '<br><br>');
+            if (lyrics[i].getAttribute('part') != 'Title' && lyrics[i].getAttribute('part') != 'Artist') {
+                submitSongLyrics.value += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>') + (lyrics[i].value + '<br><br>');;
+            }
         } else {
-            previewSongBox.innerHTML += '<em>' + ('(' + lyrics[i].value + ')</em><br><br>');
+            var output = '<em>' + ('(' + lyrics[i].value + ')</em><br><br>');
+            previewSongBox.innerHTML += output;
+            submitSongLyrics.value += output;
         }
     }
     previewSongBox.innerHTML += ('<br><br>');
