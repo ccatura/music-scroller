@@ -2,7 +2,6 @@
 include_once 'db.php';
 
 
-
 	//$conn = mysqli_connect($servername, $username, $password, $dbname);
 	$result = mysqli_query($conn,"SELECT * FROM `users` JOIN `songs` ON users.username = songs.username WHERE songs.username = 'ccatura';");
 
