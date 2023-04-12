@@ -139,12 +139,13 @@ button:focus {
     flex-flow: column nowrap;
     justify-content: center;
     align-items: center;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
     text-align: center;
     margin-bottom: 2em;
     position: sticky;
     top: 0;
     background-color: white;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0);
+    transition: .3s box-shadow;
 }
 
 .song-info-mother-section input,

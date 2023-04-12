@@ -42,7 +42,7 @@
                     <option value="">Bridge</option>
                     <option value="">Custom</option>
                 </select>
-                <div class="remove" id="remove">&#10006;</div>
+                <div class="remove" id="remove" name="Remove This Section" title="Remove This Section">&#10006;</div>
             </div>
             <textarea name="" cols="30" rows="10" class="song-info-textarea lyrics part-lyrics" placeholder="Input lyrics here" part="Verse">
 (It) recently occurred to me
@@ -55,12 +55,12 @@ And my heart is telling me to improvise
 (But) when I’m home something in me dies</textarea>
             <button class="button-menu">Actions</button>
             <div class="button-set">
-                <button class="add-above">Add Section Above</button>
-                <button class="add-below">Add Section Below</button>
-                <button class="add-comment-above">Add Comment Above</button>
-                <button class="add-comment-below">Add Comment Below</button>
-                <button class="move-up">Move Section Up</button>
-                <button class="move-down">Move Section Down</button>
+                <button class="add-above"><strong>&#x2b;</strong> Add Above &#11165;</button>
+                <button class="add-below"><strong>&#x2b;</strong> Add Below &#11167;</button>
+                <button class="add-comment-above">Comment Above &#11165;</button>
+                <button class="add-comment-below">Comment Below &#11167;</button>
+                <button class="move-up">&#11165; Move Up &#11165;</button>
+                <button class="move-down">&#11167; Move Down &#11167;</button>
             </div>
         </div>
 
@@ -122,8 +122,8 @@ Maybe sometimes love is better when it’s gone</textarea>
                 <button class="move-down">Move Section Down</button>
             </div>
         </div>
-        <div class="song-part-mother-section" id="023456782290987654678" label="part-comment">
-            <input class="song-info-input lyrics" type="text" part="Comment" value="Repeat Verse">
+        <div class="song-part-mother-section" id="comment-template" label="part-comment" style="display: none;"> <!-- to create comment, copy this section, the 1) change ID  2) display=flex -->
+            <input class="song-info-input lyrics" type="text" part="Comment" value="Repeat Chorus">
             <button class="button-menu">Actions</button>
             <div class="button-set">
                 <button class="add-above">Add Section Above</button>
@@ -155,6 +155,10 @@ Maybe sometimes love is better when it’s gone</textarea>
             <div id="preview-song"></div>
         </div>
     </div>
+
+    <input type="hidden" name="song-artist" value="nothing">
+    <input type="hidden" name="song-title" value="nothing">
+    <input type="hidden" name="song-lyrics" value="nothing">
 
 </div>
 

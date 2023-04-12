@@ -9,6 +9,14 @@ var confirmYes              = document.querySelector('#confirm-yes');
 var previewSongContainer    = document.querySelector('#preview-song-container');
 var previewSongBox          = document.querySelector('#preview-song');
 var previewSongClose        = document.querySelector('#preview-song-close');
+var songInfoMotherSection   = document.querySelector('.song-info-mother-section');
+
+var songArtist              = document.getElementById('song-artist').value;
+var songTitle               = document.getElementById('song-title').value;
+
+var submitSongArtist        = document.getElementsByName('song-artist')[0].value;
+var submitSongTitle         = document.getElementsByName('song-title')[0].value;
+
 var currentRemoveID;
 
 // insert comment markers or something like that, and things to incluse "repeat chorus" etc
@@ -22,8 +30,14 @@ for (var x=0; x < songSections.childElementCount; x++) {
     }
 }
 
-
-
+window.addEventListener("scroll", (event) => {
+    let scroll = this.scrollY;
+    if (scroll > 10) {
+        songInfoMotherSection.style.boxShadow = '0 10px 20px rgba(0, 0, 0, .5)';
+    } else {
+        songInfoMotherSection.style.boxShadow = '0 10px 20px rgba(0, 0, 0, 0)';
+    }
+});
 
 preview.addEventListener('click', function() {
     previewSong();
@@ -50,11 +64,11 @@ container.addEventListener('click', function() {
     else if (thisSelection.className.includes('add-below')) {
         targetParentSection.after(makeClone(targetParentSection));
     }
-    else if (thisSelection.className.includes('add-comment-below')) {
-        targetParentSection.after(clone); // ************************************ NOT RIGHT YET
-    }
     else if (thisSelection.className.includes('add-comment-above')) {
         targetParentSection.before(clone); // ************************************ NOT RIGHT YET
+    }
+    else if (thisSelection.className.includes('add-comment-below')) {
+        targetParentSection.after(clone); // ************************************ NOT RIGHT YET
     }
     else if (thisSelection.className.includes('move-up')) {
         targetParentSection.parentNode.insertBefore(targetParentSection, targetParentSection.previousElementSibling);
