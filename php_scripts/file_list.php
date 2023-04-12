@@ -12,4 +12,5 @@ include_once 'db.php';
         "<a href='./users/ccatura/songs/php/" . $file_title . "'>" . $row['song_title'] . "</a> <br>".
         "<a href='./php_scripts/display_song.php?song_title=" . $row['song_title'] . "&id=1'>" . $row['artist'] . "</a> <br/>";
     }
+    
 ?>

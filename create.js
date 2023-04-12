@@ -188,7 +188,6 @@ container.addEventListener('click', function() {
 });
 
 
-
 function setDivColor(div, part) {
     div.classList.remove('part-verse');
     div.classList.remove('part-pre-chorus');

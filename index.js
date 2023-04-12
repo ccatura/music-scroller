@@ -76,7 +76,6 @@ speedUp.onclick = function() {
 
 
 
-
 // START SIZE
 sizeUp.onclick = function() {
     if (newFontSize < largestSize) {
