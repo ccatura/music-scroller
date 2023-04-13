@@ -53,7 +53,7 @@ container.addEventListener('click', function() {
     if (thisSelection.id != 'save') {
         event.preventDefault();
     }
-    console.log(thisSelection.id);
+    // console.log(thisSelection.id);
 
     if (thisSelection.className.includes('remove')) {
         if (songSections.childElementCount > 1) {

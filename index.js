@@ -26,7 +26,7 @@ var speedPresets = {
     2:  100,
     1:  150
 };
-var speedIndex = 7; // Starting speed
+var speedIndex = 4; // Starting speed
 
 displaySpeed();
 displaySize();
