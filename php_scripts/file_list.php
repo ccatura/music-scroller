@@ -7,9 +7,9 @@ include_once 'db.php';
 
 
     while ($row = mysqli_fetch_assoc($result)) {
-        $file_title = strtolower(str_replace(" ", "_", $row['song_title'])) . '.php';
+        $file_title = './users/ccatura/songs/php/base.php?song_title=' . strtolower(str_replace(" ", "_", $row['song_title']));
         echo "<li>" .
-        "<a href='./users/ccatura/songs/php/" . $file_title . "'>" . $row['song_title'] . "</a> <br>".
+        "<a href='" . $file_title . "'>" . $row['song_title'] . "</a> <br>" .
         "<a href='./php_scripts/display_song.php?song_title=" . $row['song_title'] . "&id=1'>" . $row['artist'] . "</a> <br/>";
     }
     
