@@ -62,7 +62,7 @@
                 $title = str_replace("_", " ", $_GET['song_title']);
                 include_once '../../../../db.php';
 
-                echo $title;
+                echo $title . '<br><br>';
 
             	$result = mysqli_query($conn,"SELECT * FROM `users` JOIN `songs` ON users.username = songs.username WHERE songs.username = 'ccatura' AND songs.song_title = '" . $title . "'");
 

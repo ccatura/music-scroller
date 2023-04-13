@@ -220,10 +220,10 @@ function previewSong() {
     submitSongLyrics.value = '';
     for (var i = 0; i < lyrics.length; i++) {
         if (lyrics[i].getAttribute('part') != 'Comment') {
-            var newLyrics = lyrics[i].value.replace(/\n/g, "<br>"); // Converts /n to <br>
-            previewSongBox.innerHTML += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>') + (newLyrics + '<br><br>');
+            var filteredLyrics = lyrics[i].value.replace(/\n/g, "<br>"); // Converts /n to <br>
+            previewSongBox.innerHTML += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>') + (filteredLyrics + '<br><br>');
             if (lyrics[i].getAttribute('part') != 'Title' && lyrics[i].getAttribute('part') != 'Artist') {
-                submitSongLyrics.value += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>') + (lyrics[i].value + '<br><br>');;
+                submitSongLyrics.value += '<strong>' + (lyrics[i].getAttribute('part') + '</strong><br>') + (filteredLyrics + '<br><br>');
             }
         } else {
             var output = '<em>' + ('(' + lyrics[i].value + ')</em><br><br>');

@@ -11,9 +11,9 @@ if(isset($_POST['submit']))
     VALUES ('$username', '$song_title', '$song_artist', '$song_lyrics')";
 
     if (mysqli_query($conn, $sql)) {
-       echo "New record has been added successfully !";
+       echo "<h1>New record has been added successfully!</h1>";
     } else {
-       echo "Error: " . $sql . ":-" . mysqli_error($conn);
+       echo "<h1>Error: " . $sql . ":-" . mysqli_error($conn) . "</h1>";
     }
     mysqli_close($conn);
 }
