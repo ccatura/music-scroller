@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
-    <link rel="stylesheet" href="../../../../index.css" class="">
+    <link rel="stylesheet" href="../../../../index_OLD.css" class="">
     <script src="../../../../index.js" defer></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
     <title>Charlie's Music Scroller for Musicians</title>
@@ -59,16 +59,16 @@
 
         <div class="song">
             <?php
-                $title = str_replace("_", " ", $_GET['song_title']);
+                $song_id = str_replace("_", " ", $_GET['song_id']);
                 include_once '../../../../db.php';
 
-                echo $title . '<br><br>';
-
-            	$result = mysqli_query($conn,"SELECT * FROM `users` JOIN `songs` ON users.username = songs.username WHERE songs.username = 'ccatura' AND songs.song_title = '" . $title . "'");
+            	$result = mysqli_query($conn,"SELECT * FROM `users` JOIN `songs` ON users.username = songs.username WHERE songs.username = 'ccatura' AND songs.id = '" . $song_id . "'");
 
 
                 while ($row = mysqli_fetch_assoc($result)) {
                     // $file_title = './users/ccatura/songs/php/base.php?song_title=' . strtolower(str_replace(" ", "_", $row['song_title']));
+                    echo "<div class='song-title'>" . $row['song_title'] . "</div>";
+                    echo "<div class='song-sub-title'>" . $row['song_artist'] . "</div>";
                     echo $row['song_lyrics'];
                 }
             

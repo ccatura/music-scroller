@@ -14,6 +14,7 @@ var songInfoMotherSection   = document.querySelector('.song-info-mother-section'
 var submitSongArtist        = document.getElementsByName('song-artist')[0];
 var submitSongTitle         = document.getElementsByName('song-title')[0];
 var submitSongLyrics        = document.getElementsByName('song-lyrics')[0];
+var submitSongID            = document.getElementsByName('song-id')[0];
 
 var currentRemoveID;
 

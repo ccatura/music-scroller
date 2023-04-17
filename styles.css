@@ -118,7 +118,8 @@ button:focus {
     outline: 2px solid black;
 }
 
-.song-part-mother-section {
+.song-part-mother-section,
+.file-list li {
     /* background: #ddd; */
     padding: 1em;
     display: flex;
@@ -127,10 +128,30 @@ button:focus {
     align-items: center;
     margin-left: 2em;
     margin-right: 2em;
+    margin-bottom: 1em;
     border-radius: 10px;
     border: 2px solid black;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, .5);
     text-align: center;
+}
+
+.file-list-title,
+.file-list-title a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.file-list-artist {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.file-list-id {
+    font-weight: normal;
+    font-size: 14px;
+    font-style: italic;
 }
 
 .song-info-mother-section {
@@ -169,10 +190,6 @@ textarea {
 
 .section-heading {
     width: 70px;
-}
-
-.song-part-mother-section {
-    margin-bottom: 1em;
 }
 
 .remove {
@@ -280,6 +297,7 @@ textarea {
     width: 100%;
     padding: 1em;
 }
+
 
 
 

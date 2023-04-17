@@ -7,10 +7,10 @@ include_once 'db.php';
 
 
     while ($row = mysqli_fetch_assoc($result)) {
-        $file_title = './users/ccatura/songs/php/base.php?song_title=' . strtolower(str_replace(" ", "_", $row['song_title']));
-        echo "<li>" .
-        "<a href='" . $file_title . "'>" . $row['song_title'] . "</a> <br>" .
-        "<a href='./php_scripts/display_song.php?song_title=" . $row['song_title'] . "&id=1'>" . $row['artist'] . "</a> <br/>";
+        $file_title = './users/ccatura/songs/php/base.php?song_title=' . strtolower(str_replace(" ", "_", $row['song_title'])) . "&song_id=" . $row['id'];
+        echo "<li>" . "<p class='file-list-title'><a href='" . $file_title . "'>" . $row['song_title'] . "</a>";
+        echo "<p class='file-list-id'>ID: " . $row['id'] . "</p>";
+        echo "<p class='file-list-artist'>" . $row['song_artist'] . "</p>";
     }
     
 ?>
