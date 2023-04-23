@@ -1,3 +1,3 @@
 <?php
-    $password = "f0DhWKFxAF^G@9mWz7b+kB";
+    $password = "deY2@J+0U";
 ?>
