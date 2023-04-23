@@ -52,9 +52,21 @@
             <div id="settings"></div>
             <div class="button-group">
                 <div class="button" id="settings">&#8943;</div>
+                <ul class="menu">
+                    <div style="align-self: flex-end; font-weight: bold; cursor: pointer;">&#10005;</div>
+                    <li>Edit this song</li>
+                    <div class="hr"></div>
+                    <li>Save settings for desktop</li>
+                    <li>Save settings for mobile</li>
+                    <div class="hr"></div>
+                    <li>Go to Create</li>
+                    <li>Go to Song List</li>
+                    <li>Logout</li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
     <div class="scroller">
 
         <div class="song">
@@ -64,12 +76,13 @@
 
             	$result = mysqli_query($conn,"SELECT * FROM `users` JOIN `songs` ON users.username = songs.username WHERE songs.username = 'ccatura' AND songs.id = '" . $song_id . "'");
 
-
                 while ($row = mysqli_fetch_assoc($result)) {
-                    // $file_title = './users/ccatura/songs/php/base.php?song_title=' . strtolower(str_replace(" ", "_", $row['song_title']));
-                    echo "<div class='song-title'>" . $row['song_title'] . "</div>";
-                    echo "<div class='song-sub-title'>" . $row['song_artist'] . "</div>";
-                    echo $row['song_lyrics'];
+                    if ($row['id'] == $song_id) {
+                        // $file_title = './users/ccatura/songs/php/base.php?song_title=' . strtolower(str_replace(" ", "_", $row['song_title']));
+                        echo "<div class='song-title'>" . $row['song_title'] . "</div>";
+                        echo "<div class='song-sub-title'>" . $row['song_artist'] . "</div>";
+                        echo $row['song_lyrics'];
+                    }
                 }
             
             
