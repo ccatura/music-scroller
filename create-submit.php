@@ -7,7 +7,7 @@ if(isset($_POST['submit']))
     $song_artist = str_replace("'", "\'", $_POST['song-artist']);
     $song_lyrics = str_replace("'", "\'", $_POST['song-lyrics']);
 
-    $sql = "INSERT INTO `songs` (`username`, `song_title`, `artist`, `song_lyrics`)
+    $sql = "INSERT INTO `songs` (`username`, `song_title`, `song_artist`, `song_lyrics`)
     VALUES ('$username', '$song_title', '$song_artist', '$song_lyrics')";
 
     if (mysqli_query($conn, $sql)) {
