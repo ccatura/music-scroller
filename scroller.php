@@ -20,14 +20,22 @@
                 <div class="button" id="pause"><div class="pause"></div></div>
             </div>
         </div>
-            <!-- Next/Previous Button Section -->
-            <div class="button-section">
-                <div id="page-number">Song 1</div>
-                <div class="button-group">
+
+        <!-- Hide -->
+        <div class="button-section">
+            <div id="page-number">Fullscreen</div>
+            <div class="button-group">
+                <div class="button" id="fullscreen">&#x26F6;</div>
+            </div>
+        </div>
+        <!-- Next/Previous Button Section -->
+        <div class="button-section">
+            <div id="page-number">Song 1</div>
+            <div class="button-group">
                 <div class="button" id="prev">&larr;</div>
                 <div class="button" id="next">&rarr;</div>
             </div>
-            </div>
+        </div>
         <!-- Speed Section -->
         <div class="button-section">
             <div>Speed: </div>

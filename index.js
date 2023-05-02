@@ -4,6 +4,7 @@ var speedUp = document.getElementById("speed-up");
 var speedDown = document.getElementById("speed-down");
 var sizeUp = document.getElementById("size-up");
 var sizeDown = document.getElementById("size-down");
+var fullscreenButton = document.getElementById("fullscreen");
 
 var startScroll;
 var paused = true;
@@ -12,6 +13,10 @@ var playState = paused;
 var smallestSize = 10;
 var largestSize = 136;
 var sizeBy = 4;
+
+fullscreenButton.addEventListener('click', function() {
+    document.head.requestFullscreen();
+});
 
 // These are my personal pre-schosen speeds based on experienced teleprompt needs
 var speedPresets = {
